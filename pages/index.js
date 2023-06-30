@@ -2,7 +2,6 @@
  import HeroSection from "@/components/HeroSection";
  import LendingPartners from "@/components/LendingPartners";
  import ContactForm from "@/components/ContactForm";
- import LendingPartners from "@/components/LendingPartners";
  import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
