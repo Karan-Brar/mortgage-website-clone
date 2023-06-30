@@ -13,6 +13,14 @@
 	width: 1px;
 }
 
+.testimonial {
+  transition: opacity 2s ease-in-out;
+}
+
+.client {
+  transition: opacity 2s ease-in-out;
+}
+
 @layer utilities
 {
   .mark-point

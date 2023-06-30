@@ -4,10 +4,10 @@ import Image from 'next/image';
 const LendingPartners = () => {
   return (
     <div className="font-franklin bg-slate-50">
-      <h1 className="font-bold sm:text-5xl text-3xl w-fit mx-auto mt-12">
+      <h1 className="font-bold sm:text-5xl text-3xl w-fit mx-auto py-10">
         Various Lending Partners
       </h1>
-      <div className="grid gap-y-12 sm:gap-x-0 gap-x-2 sm:grid-cols-3 grid-cols-2 sm:grid-rows-2 grid-rows-3 mt-16">
+      <div className="grid gap-y-12 sm:gap-x-0 gap-x-2 sm:grid-cols-3 grid-cols-2 sm:grid-rows-2 grid-rows-3 sm:mt-16 mt-2 pb-5">
         <div>
           <Image
             src="/assets/images/home-trust.png"
