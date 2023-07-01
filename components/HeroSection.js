@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <div className="w-full bg-slate-50 sm:flex font-franklin">
       <div className="sm:w-1/2 flex-col">
-        <h1 className="font-bold sm:text-5xl text-3xl w-4/5 mx-auto my-16">
+        <h1 className="font-bold lg:text-5xl text-3xl w-4/5 mx-auto my-16">
           Saving You Money at Every Step.
         </h1>
 
@@ -80,7 +80,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="sm:w-1/2 bg-blue-100">
+      <div className="sm:w-1/2 bg-blue-100 sm:h-auto h-56 mt-10 sm:mt-0">
         {/* <div className="sm:mt-28">
               <Image
               src="/assets/images/happy-couple.jpg"

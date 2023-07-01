@@ -24,11 +24,11 @@ const Testimonials = () => {
 
   return (
     <div className="font-franklin bg-blue-100">
-      <h1 className="font-bold sm:text-5xl text-3xl w-fit mx-auto py-10">
+      <h1 className="font-bold w-fit mx-auto py-10 heading">
         Customer Reviews
       </h1>
-      <div className="sm:w-2/5 bg-slate-50 mx-auto sm:rounded-full">
-        <div className="w-4/6 mx-auto py-5 text-xl" ref={textRef}>
+      <div className="sm:w-4/5 lg:w-2/5 w-5/6 bg-slate-50 mx-auto sm:rounded-full rounded-lg">
+        <div className="w-5/6 mx-auto py-5 sm:text-xl text-lg" ref={textRef}>
         "{testimonials[currentTextIndex]}"
         </div>
         <div className="w-fit mx-auto text-lg pb-5" ref={clientRef}>
