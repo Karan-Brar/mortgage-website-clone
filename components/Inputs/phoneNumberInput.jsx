@@ -13,7 +13,7 @@ export const PhoneNumberInput = ({ control, register }) => {
 						mask="(999)-999-9999"
 						maskChar=""
 						autoComplete="phone"
-						className="form-input"
+						className="w-full bg-transparent border border-b-black border-t-transparent border-r-transparent border-l-transparent"
 						onChange={onChange}
 						value={value}
 					/>

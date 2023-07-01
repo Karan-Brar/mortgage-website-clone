@@ -5,7 +5,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div>
       <NavigationBar />
-      <Component {...pageProps} />
+      <Component {...pageProps} classNames={"opacity - 1 "} />
     </div>
   );
 }

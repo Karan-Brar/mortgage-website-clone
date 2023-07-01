@@ -13,25 +13,6 @@
 	width: 1px;
 }
 
-.main {
-	width: 100vw;
-	min-height: 100vh;
-	position: fixed;
-	display: flex;
-
-	pointer-events: none;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-}
-.app {
-	min-height: 100%;
-	height: 100%;
-}
-
 .testimonial {
   transition: opacity 2s ease-in-out;
 }
@@ -49,26 +30,11 @@ body {
 
   .mark-text
   {
-    @apply place-self-center lg:text-2xl text-xl ml-4 
+    @apply place-self-center sm:text-2xl text-xl ml-4 
   }
 
   .partner-logo
   {
     @apply mx-auto
-  }
-
-  .heading
-  {
-    @apply text-3xl
-  }
-
-  .form-label
-  {
-    @apply text-lg mb-4
-  }
-
-  .form-input
-  {
-    @apply w-full bg-transparent border border-b-black border-t-transparent border-r-transparent border-l-transparent outline-none px-2
   }
 }
