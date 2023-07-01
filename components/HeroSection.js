@@ -3,8 +3,8 @@ import React from 'react'
 const HeroSection = () => {
   return (
     <div className="w-full bg-slate-50 sm:flex font-franklin">
-      <div className="sm:w-1/2 flex-col">
-        <h1 className="font-bold sm:text-5xl text-3xl w-4/5 mx-auto my-16">
+      <div className="flex-col sm:w-1/2">
+        <h1 className="w-4/5 mx-auto my-16 text-3xl font-bold sm:text-5xl">
           Saving You Money at Every Step.
         </h1>
 
@@ -73,23 +73,14 @@ const HeroSection = () => {
         </div>
 
         <div className='w-4/5 mx-auto'>
-          <div className="w-3/5 sm:mx-0 mx-auto h-14 bg-blue-200 rounded-lg flex justify-center sm:mb-36 hover:cursor-pointer">
+          <div className="flex justify-center w-3/5 mx-auto bg-blue-200 rounded-lg sm:mx-0 h-14 sm:mb-36 hover:cursor-pointer">
             <div className="text-2xl font-bold text-white place-self-center">
               Get In touch
             </div>
           </div>
         </div>
       </div>
-      <div className="sm:w-1/2 bg-blue-100">
-        {/* <div className="sm:mt-28">
-              <Image
-              src="/assets/images/happy-couple.jpg"
-              alt="happy-couple"
-              width={1200}
-              height={120}
-            />
-            </div> */}
-      </div>
+
     </div>
   );
 }
