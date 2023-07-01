@@ -1,6 +1,11 @@
 import React from 'react'
 
 const HeroSection = () => {
+ const handleScroll = () => {
+    	const targetElement = document.getElementById("contact-section");
+        targetElement.scrollIntoView({ behavior: "smooth" });
+ }
+
   return (
     <div className="w-full bg-slate-50 sm:flex font-franklin">
       <div className="sm:w-1/2 flex-col">
@@ -74,7 +79,7 @@ const HeroSection = () => {
 
         <div className='w-4/5 mx-auto'>
           <div className="w-3/5 sm:mx-0 mx-auto h-14 bg-blue-200 rounded-lg flex justify-center sm:mb-36 hover:cursor-pointer">
-            <div className="text-2xl font-bold text-white place-self-center">
+            <div className="text-2xl font-bold text-white place-self-center" onClick={handleScroll}>
               Get In touch
             </div>
           </div>
