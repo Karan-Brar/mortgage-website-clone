@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 
 const testimonials = [
@@ -20,15 +19,12 @@ const Testimonials = () => {
   const handleClick = () => {
     setTimeout(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-
     }, 500);
+
     setTimeout(() => {
       setFadeIn(true);
     }, 500)
-
-
   };
-
 
   return (
     <div className="bg-blue-100 font-franklin">
