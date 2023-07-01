@@ -73,14 +73,14 @@ const HeroSection = () => {
         </div>
 
         <div className='w-4/5 mx-auto'>
-          <div className="w-3/5 sm:mx-0 mx-auto h-14 bg-blue-200 rounded-lg flex justify-center sm:mb-36 hover:cursor-pointer">
+          <div className="flex justify-center w-3/5 mx-auto bg-blue-200 rounded-lg sm:mx-0 h-14 sm:mb-36 hover:cursor-pointer">
             <div className="text-2xl font-bold text-white place-self-center">
               Get In touch
             </div>
           </div>
         </div>
       </div>
-      <div className="sm:w-1/2 bg-blue-100 sm:h-auto h-56 mt-10 sm:mt-0">
+      <div className="sm:w-1/2 bg-blue-100">
         {/* <div className="sm:mt-28">
               <Image
               src="/assets/images/happy-couple.jpg"
