@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 const testimonials = [
   "A fairly stress-free process. Their guidance in navigating the mortgage market was invaluable. Grateful for their support",
@@ -15,8 +15,6 @@ const clientNames = [
 
 const Testimonials = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const textRef = useRef(null);
-  const clientRef = useRef(null);
   const [fadeIn, setFadeIn] = useState(true);
 
   const handleClick = () => {
@@ -32,14 +30,12 @@ const Testimonials = () => {
   };
 
 
-  //opacity-0
-  //opacity-0
   return (
     <div className="bg-blue-100 font-franklin">
       <h1 className="py-10 mx-auto font-bold w-fit heading">
         Customer Reviews
       </h1>
-      <div className="lg:w-2/5 w/4/5  mx-auto rounded-md bg-slate-50">
+      <div className="w-4/5 mx-auto rounded-md lg:w-2/5 bg-slate-50">
         <div className={`flex flex-col items-center justify-center  ease-in duration-300 ${fadeIn ? "opacity-100" : "opacity-0"
           }`}>
           <div
