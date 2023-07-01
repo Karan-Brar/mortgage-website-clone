@@ -33,18 +33,25 @@ const Testimonials = () => {
 
 
   //opacity-0
+  //opacity-0
   return (
     <div className="bg-blue-100 font-franklin">
-      <h1 className="py-10 mx-auto font-bold w-fit heading">
+      <h1 className="py-10 mx-auto text-3xl font-bold sm:text-5xl w-fit heading">
         Customer Reviews
       </h1>
-      <div className="sm:w-4/5 lg:w-2/5 w-5/6 bg-slate-50 mx-auto sm:rounded-full rounded-lg">
-        <div className="w-5/6 mx-auto py-5 sm:text-xl text-lg" ref={textRef}>
-        "{testimonials[currentTextIndex]}"
-        </div>
-        <div className="w-fit mx-auto text-lg pb-5" ref={clientRef}>
-          <span className="text-red-100">- </span>
-          {clientNames[currentTextIndex]}
+      <div className="w-2/5 mx-auto rounded-md bg-slate-50">
+        <div className={`flex flex-col items-center justify-center  ease-in duration-300 ${fadeIn ? "opacity-100" : "opacity-0"
+          }`}>
+          <div
+            className="p-5 "
+          >
+            "{testimonials[currentTextIndex]}"
+          </div>
+          <div
+            className='pb-5 text-lg'
+          >
+            - {clientNames[currentTextIndex]}
+          </div>
         </div>
       </div>
 
@@ -74,5 +81,4 @@ const Testimonials = () => {
     </div >
   );
 };
-
 export default Testimonials;
