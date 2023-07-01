@@ -91,14 +91,25 @@ const ContactForm = () => {
                         </svg>
                     </Link>
 
+                    <Link className="m-5" href="#">
+                        <Image priority quality={30} width={80} height={80} src="/assets/icon/facebook.png" />
+                    </Link>
+
+                    <Link className="m-5" href="#">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 22C14.6804 22 13.51 22.639 12.7815 23.6244C13.0832 23.7236 13.3709 23.8822 13.6271 24.1017L36.4207 43.6392C38.4804 45.4046 41.5197 45.4046 43.5794 43.6392L66.3731 24.1017C66.6292 23.8822 66.9169 23.7236 67.2185 23.6245C66.49 22.639 65.3196 22 64 22H16Z" fill="#000" />
+                            <path d="M68 29.2926L46.8334 47.4354C42.9012 50.8059 37.0989 50.8059 33.1668 47.4354L12 29.2925V54C12 56.2091 13.7909 58 16 58H64C66.2091 58 68 56.2091 68 54V29.2926Z" fill="#C2CCDE" />
+                        </svg>
+                    </Link>
+
                 </div>
 
             </div>
-            <digv className="flex items-center justify-center pt-4 ">
+            <div className="flex items-center justify-center pt-4 ">
                 <h1 className="mb-2 text-2xl font-bold tracking-tight ">
                     Shoot us a message
                 </h1>
-            </digv>
+            </div>
             <form
                 onSubmit={handleSubmit(data => sendContactEmail(data))}
                 className="max-w-xl mx-auto mt-5 sm:mt-12"
@@ -107,7 +118,7 @@ const ContactForm = () => {
                     <div className="mb-2 sm:col-span-2">
                         <label
                             htmlFor="fullName"
-                            className="block form-label font-semibold leading-6"
+                            className="block text-sm font-semibold leading-6"
                         >
                             Name
                         </label>
@@ -125,7 +136,7 @@ const ContactForm = () => {
                     <div className="mb-2 sm:col-span-2">
                         <label
                             htmlFor="companyPhoneNumber"
-                            className="block form-label font-semibold leading-6 "
+                            className="block text-sm font-semibold leading-6 "
                         >
                             Phone No
                         </label>
@@ -138,7 +149,7 @@ const ContactForm = () => {
                     <div className="mb-2 sm:col-span-2">
                         <label
                             htmlFor="companyEmail"
-                            className="block form-label font-semibold leading-6 "
+                            className="block text-sm font-semibold leading-6 "
                         >
                             E-Mail
                         </label>
@@ -158,7 +169,7 @@ const ContactForm = () => {
                     <div className="mb-2 sm:col-span-2">
                         <label
                             htmlFor="contactMessage"
-                            className="block form-label font-semibold leading-6 "
+                            className="block text-sm font-semibold leading-6 "
                         >
                             What are you looking for?
                         </label>
