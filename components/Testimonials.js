@@ -31,7 +31,7 @@ const Testimonials = () => {
       <h1 className="py-10 mx-auto font-bold w-fit heading">
         Customer Reviews
       </h1>
-      <div className="w-4/5 mx-auto rounded-md lg:w-2/5 bg-slate-100">
+      <div className="w-4/5 mx-auto rounded-md lg:w-2/5 bg-slate-50">
         <div className={`flex flex-col items-center justify-center  ease-in duration-300 ${fadeIn ? "opacity-100" : "opacity-0"
           }`}>
           <div

@@ -7,7 +7,7 @@ export default function NavigationBar() {
   const [toggleDropdown, setToggleDropdown] = useState(false);
   return (
     // Desktop Nav
-    <nav className="w-full p-3 flex flex-between justify-between sm:px-7 font-franklin">
+    <nav className="w-full p-3 flex flex-between justify-between sm:px-7 font-franklin bg-slate-50">
       <Link href="/" className="flex gap-2 flex-center">
         {/* <Image
           src="/assets/images/main-logo.png"

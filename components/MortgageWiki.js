@@ -30,11 +30,11 @@ const MortgageWiki = () => {
   };
 
   return (
-    <section className="font-franklin bg-slate-100" id="q-a">
-      <h1 className="py-10 mx-auto font-bold w-fit heading">
+    <section className="font-franklin bg-slate-50" id="q-a">
+      <h1 className="py-8 mx-auto font-bold w-fit heading">
         We've got Answers
       </h1>
-      <div className="w-4/5 mx-auto rounded-md lg:w-2/5">
+      <div className="w-4/5 mx-auto rounded-md lg:w-2/5 bg-slate-100">
         <Image
           src={`/assets/images/${images[currentTextIndex]}`}
           alt="Buying a home"

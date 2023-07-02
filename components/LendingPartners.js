@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const LendingPartners = () => {
   return (
-    <div className="font-franklin bg-slate-100">
+    <div className="font-franklin bg-slate-50">
       <h1 className="pt-10 mx-auto font-bold w-fit heading">
         Various Lending Partners
       </h1>

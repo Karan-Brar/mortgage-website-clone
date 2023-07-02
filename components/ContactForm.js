@@ -43,7 +43,7 @@ const ContactForm = () => {
         className="items-center font-franklin hover:bottom-0"
         id="contact-section"
       >
-        <div className="flex flex-col items-center justify-center w-full py-10 bg-slate-100">
+        <div className="flex flex-col items-center justify-center w-full py-10 bg-slate-50">
           <h1 className="mb-4 font-bold tracking-tight heading">
             Contact Information
           </h1>
