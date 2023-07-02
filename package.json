@@ -9,6 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "react-horizontal-scrolling-menu": "^4.1.0",
+    "handlebars": "^4.7.7",
+    "headlessui": "^0.0.0",
+    "heroicons": "^2.0.18",
+    "html-react-parser": "^4.0.0",
+    "@sendgrid/mail": "^7.7.0",
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.1.1",
     "@material-tailwind/react": "^2.0.4",
     "animejs": "^3.2.1",
