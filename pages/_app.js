@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import NavigationBar from "@/components/NavigationBar";
 import Head from "next/head";
+import Footer from "@/components/Footer";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <NavigationBar />
       <Component {...pageProps} classNames={"opacity - 1 "} />
+      <Footer />
     </div>
   );
 }

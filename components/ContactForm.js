@@ -39,8 +39,8 @@ const ContactForm = () => {
   }
 
   return (
-    <section className="items-center my-10 font-franklin hover:bottom-0 sm:my-10" id="contact-section">
-      <div className="flex flex-col items-center justify-center w-full mb-5 bg-white">
+    <section className="items-center font-franklin hover:bottom-0" id="contact-section">
+      <div className="flex flex-col items-center justify-center w-full bg-slate-100 py-7">
         <h1 className="mb-4 font-bold tracking-tight heading">
           Contact Information
         </h1>
@@ -96,8 +96,8 @@ const ContactForm = () => {
           </Link>
         </div>
       </div>
-      <div className="bg-blue-100">
-        <div className="flex items-center justify-center py-8">
+      <div className="bg-blue-100 py-8">
+        <div className="flex items-center justify-center">
           <h1 className="mb-2 font-bold tracking-tight heading">
             Shoot us a message
           </h1>
@@ -181,7 +181,7 @@ const ContactForm = () => {
           <div className="mt-10">
             <button
               type="submit"
-              className="block w-4/6 mx-auto rounded-md bg-blue-200 text-slate-50 px-3.5 py-2.5 text-center font-semibold shadow-sm hover:ring-4 hover:ring-lime-100 hover:ring-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-2xl"
+              className="block w-4/6 mx-auto rounded-md bg-blue-200 text-slate-50 px-3.5 py-2.5 text-center font-semibold shadow-sm hover:ring-4 hover:ring-lime-100 hover:ring-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-2xl text-slate-100"
             >
               Message Us
             </button>

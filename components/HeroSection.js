@@ -7,9 +7,9 @@ const HeroSection = () => {
  }
 
   return (
-    <div className="w-full bg-slate-50 sm:flex font-franklin">
+    <div className="w-full bg-slate-100 sm:flex font-franklin">
       <div className="sm:w-1/2 flex-col">
-        <h1 className="font-bold lg:text-5xl text-3xl w-4/5 mx-auto my-16">
+        <h1 className="font-bold lg:text-5xl text-3xl w-4/5 mx-auto py-20">
           Saving You Money at Every Step.
         </h1>
 
@@ -79,7 +79,7 @@ const HeroSection = () => {
 
         <div className='w-4/5 mx-auto'>
           <div className="w-3/5 sm:mx-0 mx-auto h-14 bg-blue-200 rounded-lg flex justify-center sm:mb-36 hover:cursor-pointer">
-            <div className="text-2xl font-bold text-white place-self-center" onClick={handleScroll}>
+            <div className="text-2xl font-bold text-slate-100 place-self-center" onClick={handleScroll}>
               Get In touch
             </div>
           </div>
