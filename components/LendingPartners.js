@@ -4,7 +4,7 @@ import Image from 'next/image';
 const LendingPartners = () => {
   return (
     <div className="font-franklin bg-slate-50">
-      <h1 className="pt-10 mx-auto font-bold w-fit heading">
+      <h1 className="pt-10 mx-auto font-bold w-fit heading !text-2xl">
         Various Lending Partners
       </h1>
       <div className="grid grid-cols-2 grid-rows-3 pb-5 mt-10 gap-y-12 sm:gap-x-0 gap-x-2 sm:grid-cols-3 sm:grid-rows-2 sm:mt-12">
