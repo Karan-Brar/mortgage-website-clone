@@ -5,6 +5,12 @@ import React, { useState } from "react";
 import { PhoneNumberInput } from "@/components/Inputs/phoneNumberInput";
 import Image from "next/image"
 import Link from "next/link";
+import {
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+} from "@material-tailwind/react";
+
 const ContactForm = () => {
     const [contactEmailStatus, setContactEmailStatus] = useState("");
     const {
@@ -33,25 +39,35 @@ const ContactForm = () => {
     }
 
     return (
-      <section className="items-center font-franklin my-10 hover:bottom-0 sm:my-10" id="contact-section">
+      <section
+        className="items-center font-franklin my-10 hover:bottom-0 sm:my-10"
+        id="contact-section"
+      >
         <div className="flex flex-col items-center justify-center w-full bg-white mb-5">
           <h1 className="mb-4 font-bold tracking-tight heading">
             Contact Information
           </h1>
           <div className="flex items-center justify-between lg:w-2/5 mt-4">
-            <div className="m-5 hover:cursor-pointer">
-              <Image
-                priority
-                quality={30}
-                width={80}
-                height={80}
-                src="/assets/icon/phone2.png"
-              />
-            </div>
+              <Popover>
+                <PopoverHandler>
+                  <button className="m-5">
+                    <Image
+                      priority
+                      quality={30}
+                      width={80}
+                      height={80}
+                      src="/assets/icon/phone2.png"
+                    />
+                  </button>
+                </PopoverHandler>
+                <PopoverContent className="p-5 bg-slate-50">
+                  (431) 997-1277
+                </PopoverContent>
+              </Popover>
 
             <Link
-              className="m-5"
               href="https://instagram.com/mortgagesbyarmaan?igshid=MTIzZWMxMTBkOA=="
+              className="m-5"
             >
               <Image
                 priority
@@ -63,8 +79,8 @@ const ContactForm = () => {
             </Link>
 
             <Link
-              className="m-5"
               href="https://www.facebook.com/armaanpreetbrarmortgage?mibextid=LQQJ4d"
+              className="m-5"
             >
               <Image
                 priority
@@ -75,15 +91,22 @@ const ContactForm = () => {
               />
             </Link>
 
-            <Link className="m-5" href="mailto:armaan.mortgage@gmail.com">
-              <Image
-                priority
-                quality={30}
-                width={80}
-                height={80}
-                src="/assets/icon/email2.png"
-              />
-            </Link>
+            <Popover>
+              <PopoverHandler>
+                <button className="m-5">
+                  <Image
+                    priority
+                    quality={30}
+                    width={80}
+                    height={80}
+                    src="/assets/icon/email2.png"
+                  />
+                </button>
+              </PopoverHandler>
+              <PopoverContent className="p-5 bg-slate-50">
+                armaan.mortgage@gmail.com
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
         <div className="bg-blue-100">
@@ -123,7 +146,11 @@ const ContactForm = () => {
                   Phone No
                 </label>
                 <div className="relative">
-                  <PhoneNumberInput control={control} register={register} className="form-input"/>
+                  <PhoneNumberInput
+                    control={control}
+                    register={register}
+                    className="form-input"
+                  />
                 </div>
 
                 <p>{errors.companyPhoneNumber?.message}</p>
