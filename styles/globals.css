@@ -71,4 +71,17 @@ body {
   {
     @apply w-full bg-transparent border border-b-black border-t-transparent border-r-transparent border-l-transparent outline-none
   }
+
+  .link
+  {
+    @apply self-center font-franklin font-medium
+  }
+
+  	.dropdown {
+		@apply absolute right-0 top-full mt-3 flex w-full min-w-[210px] flex-col items-end justify-end gap-2 rounded-lg bg-slate-50 p-5;
+	}
+
+	.dropdown_link {
+		@apply font-franklin text-sm font-medium;
+	}
 }
