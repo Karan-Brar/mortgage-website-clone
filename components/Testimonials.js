@@ -27,7 +27,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-blue-100 font-franklin">
+    <section className="bg-blue-100 font-franklin" id="customer-reviews">
       <h1 className="py-10 mx-auto font-bold w-fit heading">
         Customer Reviews
       </h1>
@@ -70,7 +70,7 @@ const Testimonials = () => {
           />
         </svg>
       </div>
-    </div >
+    </section>
   );
 };
 export default Testimonials;

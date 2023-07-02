@@ -30,7 +30,7 @@ const MortgageWiki = () => {
   };
 
   return (
-    <div className="font-franklin bg-slate-100">
+    <section className="font-franklin bg-slate-100" id="q-a">
       <h1 className="py-10 mx-auto font-bold w-fit heading">
         We've got Answers
       </h1>
@@ -55,7 +55,7 @@ const MortgageWiki = () => {
       </div>
 
       <div
-        className="flex justify-center mt-10 cursor-pointer animate-bounce animate-soundcoun "
+        className="flex justify-center mt-6 cursor-pointer animate-bounce animate-soundcoun "
         onClick={() => {
           setFadeIn(false);
           handleClick();
@@ -76,7 +76,7 @@ const MortgageWiki = () => {
           />
         </svg>
       </div>
-    </div>
+    </section>
   );
 };
 

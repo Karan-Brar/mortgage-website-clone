@@ -3,7 +3,6 @@ import React from 'react'
 const HeroSection = () => {
  const handleScroll = () => {
     	const targetElement = document.getElementById("contact-section");
-        console.log("Button-hit")
         targetElement.scrollIntoView({ behavior: "smooth" });
  }
 

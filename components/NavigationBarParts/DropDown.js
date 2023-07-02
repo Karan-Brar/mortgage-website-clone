@@ -2,29 +2,36 @@ import React from 'react'
 import Link from "next/link";
 
 const DropDown = ({ desktopMode = true, onClick = () => { return null; } }) => {
+     const ScrollTo = (elementId) => {
+       const targetElement = document.getElementById(elementId);
+       targetElement.scrollIntoView({ behavior: "smooth" });
+     };
+
     return (
       <div
-        className={desktopMode ? "hidden space-x-4 sm:flex self-center" : "dropdown"}
+        className={
+          desktopMode ? "hidden space-x-4 sm:flex self-center" : "dropdown"
+        }
         onClick={onClick}
       >
-        <Link href="/" className={desktopMode ? "link" : "dropdown_link"}>
-          <span className="nav_link">WHY US</span>
-        </Link>
-        <Link
-          href="/portfolio"
+        <div
           className={desktopMode ? "link" : "dropdown_link"}
+          onClick={() => ScrollTo("contact-section")}
         >
           <span className="nav_link">CONTACT</span>
-        </Link>
-        <Link href="/about" className={desktopMode ? "link" : "dropdown_link"}>
-          <span className="nav_link">REVIEWS</span>
-        </Link>
-        <Link
-          href="/contact"
+        </div>
+        <div
           className={desktopMode ? "link" : "dropdown_link"}
+          onClick={() => ScrollTo("customer-reviews")}
         >
-          <span className="nav_link">Q-A</span>
-        </Link>
+          <span className="nav_link">REVIEWS</span>
+        </div>
+        <div
+          className={desktopMode ? "link" : "dropdown_link"}
+          onClick={() => ScrollTo("q-a")}
+        >
+          <span className="nav_link">SOLUTIONS</span>
+        </div>
       </div>
     );
 }
