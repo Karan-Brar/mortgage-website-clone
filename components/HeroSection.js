@@ -130,7 +130,7 @@ const HeroSection = () => {
             className="w-3/5 sm:mx-0 mx-auto h-14 bg-blue-200 rounded-lg flex justify-center sm:mb-36 hover:cursor-pointer"
             onClick={handleScroll}
           >
-            <div className="text-2xl font-bold text-slate-100 place-self-center text-slate-50">
+            <div className="text-2xl font-bold text-slate-100 place-self-center">
               Get In touch
             </div>
           </div>

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import HeroSection from "@/components/HeroSection";
 import LendingPartners from "@/components/LendingPartners";
-import ContactForm from "@/components/ContactForm";
+import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import MortgageWiki from "@/components/MortgageWiki";
 
@@ -15,7 +15,7 @@ export default function Home() {
       <LendingPartners />
       <Testimonials />
       <MortgageWiki />
-      <ContactForm />
+      <ContactSection />
     </div>
   );
 }   

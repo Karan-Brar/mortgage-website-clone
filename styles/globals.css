@@ -88,4 +88,8 @@ body {
   .nav_link {
 		@apply font-medium transition-colors duration-500 ease-in-out hover:text-blue-200;
 	}
+
+  .option-button{
+    @apply text-slate-100 bg-blue-200 text-2xl font-bold sm:p-7 p-3 w-fit 
+  }
 }
