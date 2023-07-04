@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Image from "next/image"
 import Link from "next/link";
 import {
@@ -7,11 +6,7 @@ import {
   PopoverContent,
 } from "@material-tailwind/react";
 import ContactForm from "./ContactForm";
-import ContactOptions from "./ContactOptions";
-
 const ContactSection = () => {
-
-  const [component, setComponent] = useState("option-buttons");
 
     return (
       <section
@@ -85,14 +80,7 @@ const ContactSection = () => {
           </div>
         </div>
         <div>
-          {component === "option-buttons" && (
-            <ContactOptions
-              showComponent={() => setComponent("contact-form")}
-            />
-          )}
-          {component === "contact-form" && (
-            <ContactForm showComponent={() => setComponent("option-buttons")} />
-          )}
+          <ContactForm />
         </div>
       </section>
     );

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useRef, useEffect } from "react";
 import anime from "animejs";
+import Link from "next/link";
 
 const HeroSection = () => {
       const topDivRef = useRef(null);
@@ -126,12 +127,11 @@ const HeroSection = () => {
         </div>
 
         <div className="w-4/5 mx-auto">
-          <div
-            className="w-3/5 sm:mx-0 mx-auto h-14 bg-blue-200 rounded-lg flex justify-center sm:mb-36 hover:cursor-pointer"
-            onClick={handleScroll}
-          >
+          <div className="w-fit sm:mx-0 mx-auto flex justify-center sm:mb-36 hover:cursor-pointer">
             <div className="text-2xl font-bold text-slate-100 place-self-center">
-              Get In touch
+              <Link href="/ApplyNow" className="py-6 px-10 bg-blue-200 rounded-lg">
+                Estimate My Rate
+              </Link>
             </div>
           </div>
         </div>
@@ -139,7 +139,7 @@ const HeroSection = () => {
       <div className="sm:w-1/2 w-full bg-blue-100 mt-10 sm:mt-0 sm:py-10 py-32 relative flex justify-center items-center overflow-hidden">
         <div
           ref={topDivRef}
-          className="w-20 h-20 rounded-full absolute lg:top-3 top-7 -left-9 bg-blue-200"
+          className="w-20 h-20 rounded-full absolute lg:top-1 top-7 -left-9 bg-blue-200"
         ></div>
         <Image
           src="/assets/images/happy-future.jpg"
@@ -149,7 +149,7 @@ const HeroSection = () => {
         />
         <div
           ref={bottomDivRef}
-          className="w-20 h-20 rounded-full absolute lg:bottom-3 bottom-7 -right-9 bg-red-100"
+          className="w-20 h-20 rounded-full absolute lg:bottom-1 bottom-7 -right-9 bg-red-100"
         ></div>
       </div>
     </div>

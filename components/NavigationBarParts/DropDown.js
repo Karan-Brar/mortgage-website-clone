@@ -14,6 +14,12 @@ const DropDown = ({ desktopMode = true, onClick = () => { return null; } }) => {
         }
         onClick={onClick}
       >
+        <Link
+          href="/"
+          className={desktopMode ? "link" : "dropdown_link"}
+        >
+          <span className="nav_link">HOME</span>
+        </Link>
         <div
           className={desktopMode ? "link" : "dropdown_link"}
           onClick={() => ScrollTo("contact-section")}
@@ -32,6 +38,12 @@ const DropDown = ({ desktopMode = true, onClick = () => { return null; } }) => {
         >
           <span className="nav_link">SOLUTIONS</span>
         </div>
+        <Link
+          href="/ApplyNow"
+          className={desktopMode ? "link" : "dropdown_link"}
+        >
+          <span className="nav_link">ESTIMATE</span>
+        </Link>
       </div>
     );
 }

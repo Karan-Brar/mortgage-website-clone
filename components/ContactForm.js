@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { PhoneNumberInput } from "@/components/Inputs/phoneNumberInput";
 
-const ContactForm = (props) => {
+const ContactForm = () => {
       const [contactEmailStatus, setContactEmailStatus] = useState("");
       const {
         register,
@@ -123,12 +123,6 @@ const ContactForm = (props) => {
             className="block w-4/6 mx-auto rounded-md bg-blue-200 text-slate-50 px-3.5 py-2.5 text-center font-semibold shadow-sm hover:ring-4 hover:ring-lime-100 hover:ring-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-2xl"
           >
             Message Us
-          </button>
-          <button
-            onClick={props.showComponent}
-            className="block w-4/6 mx-auto rounded-md bg-red-100 text-slate-50 px-3.5 py-2.5 text-center font-semibold shadow-sm hover:ring-4 hover:ring-lime-100 hover:ring-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-2xl mt-5"
-          >
-            Back
           </button>
         </div>
         <div>{contactEmailStatus}</div>
