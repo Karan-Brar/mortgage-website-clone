@@ -24,7 +24,8 @@ const MortgageEnd = (props) => {
       e.target.classList.add("selected-choice-button");
     }
 
-
+    console.log("mortgage")
+    console.log(endDate)
     setSelected(true);
     setData(endDate);
   };
@@ -40,10 +41,10 @@ const MortgageEnd = (props) => {
           type="text"
           name="endDate"
           id="endDate"
-          className="options-input mt-24"
+          className="mt-24 options-input"
           placeholder="MM/YYYY"
-          onInputCapture={(e) => enableAndSelect(e, "")}
-          required="true"
+          onInputCapture={(e) => enableAndSelect(e, e.target.value)}
+        // required="true" this doesnt do anything
         />
         <button
           onClick={(e) => enableAndSelect(e, "Not Sure")}

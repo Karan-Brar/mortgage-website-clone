@@ -13,10 +13,12 @@ const PersonalInfo = (props) => {
     const email = document.getElementById("email").value;
     const personalInfo =
     {
-        name: name,
-        phoneNum: phoneNum,
-        email: email
+      name,
+      phoneNum,
+      email
     }
+    console.log("stinky")
+    console.log(personalInfo)
     setData(personalInfo);
   };
 
@@ -24,8 +26,8 @@ const PersonalInfo = (props) => {
     <div className="option-card">
       <StepNumber number="5" />
       <h2 className="heading-question">Tell Us a Little About Yourself</h2>
-      <div className="sm:w-3/4 w-full mx-auto flex flex-col">
-        <form className="flex flex-col justify-center items-center">
+      <div className="flex flex-col w-full mx-auto sm:w-3/4">
+        <form className="flex flex-col items-center justify-center">
           <div className="options-input-area !mt-9">
             <label htmlFor="name" className="options-input-label">
               Name
@@ -71,7 +73,7 @@ const PersonalInfo = (props) => {
         </form>
 
         {filled === false && (
-          <button className="disabled-next-button">Submit</button>
+          <button className="disabled-next-button">Submhhit</button>
         )}
 
         {filled === true && (
