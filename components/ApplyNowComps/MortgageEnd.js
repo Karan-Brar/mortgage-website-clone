@@ -53,18 +53,16 @@ const MortgageEnd = (props) => {
           Not Sure
         </button>
 
-        {selected === false && (
-          <button className="disabled-next-button">Next</button>
-        )}
-
-        {selected === true && (
+        {selected === true ?
           <button
             className="enabled-next-button"
             onClick={() => props.setNext({ data, componentType })}
           >
             Next
           </button>
-        )}
+          :
+          <button className="disabled-next-button">Next</button>
+        }
 
         <button className="back-button" onClick={props.setPrev}>
           Back
