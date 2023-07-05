@@ -1,6 +1,14 @@
 import { useState } from "react";
 import StepNumber from "./StepNumber";
 
+
+const buttonOptions = [
+  { submitInfo: "Already Signed", text: "Already Signed Purchase Agreement" },
+  { submitInfo: "ASAP", text: "As soon as possible" },
+  { submitInfo: "3-4 months", text: "Buying Within Next 3-4 months" },
+  { submitInfo: "4+ months", text: "Buying in 4+ months" },
+]
+
 const PurchasePlan = (props) => {
   const componentType = "purchasePlan";
   const [selected, setSelected] = useState(false);
@@ -26,43 +34,25 @@ const PurchasePlan = (props) => {
         When Do You Plan on Purchasing a Home?
       </h2>
       <div className="button-list">
-        <button
-          onClick={(e) => enableAndSelect(e, "Already Signed")}
-          className="choice-button"
-        >
-          Already Signed Purchase Agreement
-        </button>
-        <button
-          onClick={(e) => enableAndSelect(e, "ASAP")}
-          className="choice-button"
-        >
-          As soon as possible
-        </button>
-        <button
-          onClick={(e) => enableAndSelect(e, "3-4 months")}
-          className="choice-button"
-        >
-          Buying Within Next 3-4 months
-        </button>
-        <button
-          onClick={(e) => enableAndSelect(e, "4+ months")}
-          className="choice-button"
-        >
-          Buying in 4+ months
-        </button>
+        {buttonOptions.map((op) => {
+          return <button
+            onClick={(e) => enableAndSelect(e, op.submitInfo)}
+            className="choice-button"
+          >
+            {op.text}
+          </button>
+        })}
 
-        {selected === false && (
-          <button className="disabled-next-button">Next</button>
-        )}
-
-        {selected === true && (
+        {selected === true ?
           <button
             className="enabled-next-button"
             onClick={() => props.setNext({ data, componentType })}
           >
             Next
           </button>
-        )}
+          :
+          <button className="disabled-next-button">Next</button>
+        }
 
         <button className="back-button" onClick={props.setPrev}>
           Back
