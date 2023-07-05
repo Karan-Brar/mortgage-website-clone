@@ -17,8 +17,6 @@ const PersonalInfo = (props) => {
       phoneNum,
       email
     }
-    console.log("stinky")
-    console.log(personalInfo)
     setData(personalInfo);
   };
 
@@ -27,6 +25,7 @@ const PersonalInfo = (props) => {
       <StepNumber number="5" />
       <h2 className="heading-question">Tell Us a Little About Yourself</h2>
       <div className="flex flex-col w-full mx-auto sm:w-3/4">
+        {/* Why form? I mean semantically it makes sense but the following buttons types arent set so we are actually "submitting" to no where */}
         <form className="flex flex-col items-center justify-center">
           <div className="options-input-area !mt-9">
             <label htmlFor="name" className="options-input-label">
@@ -47,7 +46,7 @@ const PersonalInfo = (props) => {
               Phone Number
             </label>
             <input
-              type="text"
+              type="tel"
               name="number"
               id="number"
               className="options-input-2"
@@ -72,18 +71,17 @@ const PersonalInfo = (props) => {
           </div>
         </form>
 
-        {filled === false && (
-          <button className="disabled-next-button">Submhhit</button>
-        )}
 
-        {filled === true && (
+        {filled === true ?
           <button
             className="enabled-next-button"
             onClick={() => props.submitForm({ data, componentType })}
           >
             Submit
           </button>
-        )}
+          :
+          <button className="disabled-next-button">Submit</button>
+        }
 
         <button className="back-button" onClick={props.setPrev}>
           Back
