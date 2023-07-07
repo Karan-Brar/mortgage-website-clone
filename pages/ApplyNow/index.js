@@ -32,7 +32,6 @@ const index = () => {
     } else if (componentType === "yourGoal") {
       setCustGoal(data)
     } else if (componentType === "mortgageEnd") {
-      console.log("yo")
       setMortgageEnd(data)
     }
   }
@@ -52,6 +51,22 @@ const index = () => {
     //state hasnt updated so these dont mean anything
     console.log({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name });
     console.log("shit")
+    async function sendContactEmail(data) {
+      let response = await fetch("/api/contact/sendContactEmail", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      if (response.status == "200") {
+        //setContactEmailStatus("Email sent");
+      } else {
+        //setContactEmailStatus("An error occured, please try again!");
+      }
+    }
+    sendContactEmail({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name });
     {/* code for email submitting */ }
   };
 

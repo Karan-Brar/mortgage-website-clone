@@ -5,14 +5,14 @@ export default async function handler(req, res) {
 	if (req.method === "POST") {
 		try {
 			//check if input is valid
-			const inputIsValid = contactFormValidation.isValid(req.body);
+			//const inputIsValid = contactFormValidation.isValid(req.body);
 
-			if (inputIsValid) {
+			if (true) {
 				//Destructure data to only get inputs we need
-				const { fullName, companyName, companyEmail, companyPhoneNumber, contactMessage } = req.body;
+				const { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name } = req.body;
 
 				//Create an object to clarify what we are sending
-				const contactInfoObject = { fullName, companyName, companyEmail, companyPhoneNumber, contactMessage };
+				const contactInfoObject = { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name };
 
 				//Send email containing the information we received 
 				sendContactEmail(contactInfoObject);

@@ -10,16 +10,14 @@ export const sendContactEmail = (inquiryInfo) => {
 
 	sgMail.setApiKey(process.env.SEND_GRID_KEY);
 
-	const { fullName, companyName, companyEmail, companyPhoneNumber, contactMessage } = inquiryInfo;
+	const { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name } = inquiryInfo;
 
 	const msg = {
 		to: "thenry.he@gmail.com", // Change to your recipient
 		from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
 		subject: "Test Client email",
 
-		html: emailTemplate({
-			fullName, companyName, companyEmail, companyPhoneNumber, contactMessage
-		}),
+		html: emailTemplate({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name }),
 	};
 	sgMail
 		.send(msg)
