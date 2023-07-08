@@ -43,15 +43,9 @@ const index = () => {
 
   const FinalSubmit = ({ data, componentType }) => {
     setComponent(componentType);
-    console.log("yo")
-    console.log(data)
+
     let { name, phoneNum, email } = data;
-    // setName(data.name);
-    // setPhoneNum(data.number);
-    // setEmail(data.email);
-    //state hasnt updated so these dont mean anything
-    console.log({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name });
-    console.log("shit")
+
     async function sendContactEmail(data) {
       let response = await fetch("/api/contact/sendContactEmail", {
         headers: {
@@ -82,7 +76,7 @@ const index = () => {
         />
       )}
 
-      {component === "custRequest" && custRequest == "Purchase" && (
+      {component === ComponentTypes.REQUEST && custRequest == "Purchase" && (
         <PurchasePlan
           setNext={({ data, componentType }) =>
             nextComponent({ data, componentType })
@@ -91,7 +85,7 @@ const index = () => {
         />
       )}
 
-      {component === "custRequest" && custRequest === "Refinance/Renew" && (
+      {component === ComponentTypes.REQUEST && custRequest === "Refinance/Renew" && (
         <YourGoal
           setNext={({ data, componentType }) =>
             nextComponent({ data, componentType })
@@ -100,7 +94,7 @@ const index = () => {
         />
       )}
 
-      {component === "purchasePlan" && (
+      {component === ComponentTypes.PURCHASE && (
         <DownPayment
           setNext={({ data, componentType }) =>
             nextComponent({ data, componentType })
@@ -109,7 +103,7 @@ const index = () => {
         />
       )}
 
-      {component === "yourGoal" && (
+      {component === ComponentTypes.GOAL && (
         <MortgageEnd
           setNext={({ data, componentType }) =>
             nextComponent({ data, componentType })
@@ -118,7 +112,7 @@ const index = () => {
         />
       )}
 
-      {(component === "mortgageEnd" || component == "downPayment") && (
+      {(component === ComponentTypes.END || component == ComponentTypes.DOWN) && (
         <CreditScore
           setNext={({ data, componentType }) =>
             nextComponent({ data, componentType })
