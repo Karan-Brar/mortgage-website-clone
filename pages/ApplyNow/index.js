@@ -72,7 +72,7 @@ const index = () => {
 
 
   return (
-    <div className="h-screen bg-slate-100">
+    <div className="lg:pb-72 pb-72 sm:pb-96 bg-slate-100">
       {component === "main-options" && (
         <MainOptions
           setNext={({ data, componentType }) =>
