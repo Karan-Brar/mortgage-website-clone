@@ -115,7 +115,7 @@ body {
 
   .button-list
   {
-    @apply sm:w-1/4 w-5/6  mx-auto flex flex-col
+    @apply xl:w-1/4 lg:w-2/4 sm:w-3/4 w-5/6  mx-auto flex flex-col
   }
 
   .choice-button

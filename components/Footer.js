@@ -8,9 +8,12 @@ const Footer = () => {
         <p className="text-lg font-bold">Sky Mortgages</p>
       </Link>
 
-      <div className="flex items-center justify-center text-md font-franklin text-gray-950">
-        <a href="https://www.webcraft.ca/">&copy; WebCraft LLC 2023</a>
-      </div>
+      <Link
+        className="flex items-center justify-center text-lg font-franklin text-gray-650"
+        href="https://www.webcraft.ca/"
+      >
+        Made by Webcraft
+      </Link>
     </div>
   );
 };
