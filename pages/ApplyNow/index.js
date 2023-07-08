@@ -7,6 +7,7 @@ import MortgageEnd from '@/components/ApplyNowComps/MortgageEnd';
 import CreditScore from '@/components/ApplyNowComps/CreditScore';
 import PersonalInfo from '@/components/ApplyNowComps/PersonalInfo';
 import ThankYouMessage from '@/components/ApplyNowComps/ThankYouMessage';
+import { ComponentTypes } from '@/Enum/ComponentEnums';
 
 const index = () => {
   const [component, setComponent] = useState("main-options");
@@ -22,16 +23,16 @@ const index = () => {
   const nextComponent = ({ data, componentType }) => {
     setComponent(componentType)
 
-    if (componentType === "custRequest") {
+    if (componentType === ComponentTypes.REQUEST) {
       setCustRequest(data);
-    } else if (componentType === "purchasePlan") {
+    } else if (componentType === ComponentTypes.PURCHASE) {
       setBuyingPlan(data);
-    } else if (componentType === "downPayment") {
+    } else if (componentType === ComponentTypes.DOWN) {
       setCustDownPayment(data);
       // setMortgageEnd("");
-    } else if (componentType === "yourGoal") {
+    } else if (componentType === ComponentTypes.GOAL) {
       setCustGoal(data)
-    } else if (componentType === "mortgageEnd") {
+    } else if (componentType === ComponentTypes.END) {
       setMortgageEnd(data)
     }
   }
