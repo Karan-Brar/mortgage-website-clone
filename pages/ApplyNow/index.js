@@ -99,7 +99,7 @@ const index = () => {
           setNext={({ data, componentType }) =>
             nextComponent({ data, componentType })
           }
-          setPrev={() => prevComponent("custRequest")}
+          setPrev={() => prevComponent(ComponentTypes.REQUEST)}
         />
       )}
 
@@ -108,7 +108,7 @@ const index = () => {
           setNext={({ data, componentType }) =>
             nextComponent({ data, componentType })
           }
-          setPrev={() => prevComponent("custRequest")}
+          setPrev={() => prevComponent(ComponentTypes.REQUEST)}
         />
       )}
 
@@ -119,8 +119,8 @@ const index = () => {
           }
           setPrev={() => {
             mortgageEnd === ""
-              ? prevComponent("purchasePlan")
-              : prevComponent("yourGoal");
+              ? prevComponent(ComponentTypes.PURCHASE)
+              : prevComponent(ComponentTypes.GOAL);
           }}
         />
       )}
@@ -130,7 +130,7 @@ const index = () => {
           submitForm={({ data, componentType }) =>
             FinalSubmit({ data, componentType })
           }
-          setPrev={() => prevComponent("mortgageEnd")}
+          setPrev={() => prevComponent(ComponentTypes.END)}
         />
       )}
 
