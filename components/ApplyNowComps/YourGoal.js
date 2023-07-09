@@ -31,8 +31,8 @@ const YourGoal = (props) => {
       <StepNumber number="2" />
       <h2 className="heading-question">What Would be your Goal?</h2>
       <div className="button-list">
-        {buttonOptions.map((op) => {
-          return <button
+        {buttonOptions.map((op, index) => {
+          return <button key={index}
             onClick={(e) => enableAndSelect(e, op.submitInfo)}
             className="choice-button"
           >

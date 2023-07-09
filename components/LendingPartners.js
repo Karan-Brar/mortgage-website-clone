@@ -13,9 +13,9 @@ const LendingPartners = () => {
             src="/assets/images/home-trust.png"
             alt="Home Trust Logo"
             width={160}
-            quality={75}
             height={160}
-            className="hidden partner-logo sm:block"
+            quality={75}
+
           />
           <Image
             src="/assets/images/home-trust.png"
@@ -23,7 +23,7 @@ const LendingPartners = () => {
             width={120}
             height={120}
             quality={75}
-            className="partner-logo sm:hidden"
+
           />
         </div>
 

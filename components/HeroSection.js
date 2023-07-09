@@ -4,36 +4,33 @@ import anime from "animejs";
 import Link from "next/link";
 
 const HeroSection = () => {
-      const topDivRef = useRef(null);
-      const bottomDivRef = useRef(null);
+  const topDivRef = useRef(null);
+  const bottomDivRef = useRef(null);
 
-      useEffect(() => {
-        const topDiv = topDivRef.current;
-        const bottomDiv = bottomDivRef.current;
+  useEffect(() => {
+    const topDiv = topDivRef.current;
+    const bottomDiv = bottomDivRef.current;
 
-        const animation = anime.timeline({ duration: 500 });
+    const animation = anime.timeline({ duration: 500 });
 
-        animation
-          .add({
-            targets: topDiv,
-            translateX: ["-100%", 0],
-            easing: "easeInOutSine",
-          })
-          .add({
-            targets: bottomDiv,
-            translateX: ["100%", 0],
-            easing: "easeInOutSine",
-          });
-      }, []);
- const handleScroll = () => {
-    	const targetElement = document.getElementById("contact-section");
-        targetElement.scrollIntoView({ behavior: "smooth" });
- }
+    animation
+      .add({
+        targets: topDiv,
+        translateX: ["-100%", 0],
+        easing: "easeInOutSine",
+      })
+      .add({
+        targets: bottomDiv,
+        translateX: ["100%", 0],
+        easing: "easeInOutSine",
+      });
+  }, []);
+
 
   return (
     <div className="w-full bg-slate-50 sm:flex font-franklin">
-      <div className="sm:w-1/2 flex-col">
-        <h1 className="font-bold lg:text-5xl text-3xl w-4/5 mx-auto pt-20">
+      <div className="flex-col sm:w-1/2">
+        <h1 className="w-4/5 pt-20 mx-auto text-3xl font-bold lg:text-5xl">
           Saving You Money at Every Step.
         </h1>
 
@@ -127,29 +124,30 @@ const HeroSection = () => {
         </div>
 
         <div className="w-4/5 mx-auto">
-          <div className="w-fit sm:mx-0 mx-auto flex justify-center sm:mb-36 hover:cursor-pointer">
+          <div className="flex justify-center mx-auto w-fit sm:mx-0 sm:mb-36 hover:cursor-pointer">
             <div className="text-2xl font-bold text-slate-100 place-self-center">
-              <Link href="/ApplyNow" className="py-6 px-10 bg-blue-200 rounded-lg">
+              <Link href="/ApplyNow" className="px-10 py-6 bg-blue-200 rounded-lg">
                 Estimate My Rate
               </Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="sm:w-1/2 w-full bg-blue-100 mt-10 sm:mt-0 sm:py-10 py-32 relative flex justify-center items-center overflow-hidden">
+      <div className="relative flex items-center justify-center w-full py-32 mt-10 overflow-hidden bg-blue-100 sm:w-1/2 sm:mt-0 sm:py-10">
         <div
           ref={topDivRef}
-          className="w-20 h-20 rounded-full absolute lg:top-1 top-7 -left-9 bg-blue-200"
+          className="absolute w-20 h-20 bg-blue-200 rounded-full lg:top-1 top-7 -left-9"
         ></div>
         <Image
           src="/assets/images/happy-future.jpg"
           alt="Happy Future"
+          priority
           width={1400}
           height={1400}
         />
         <div
           ref={bottomDivRef}
-          className="w-20 h-20 rounded-full absolute lg:bottom-1 bottom-7 -right-9 bg-red-100"
+          className="absolute w-20 h-20 bg-red-100 rounded-full lg:bottom-1 bottom-7 -right-9"
         ></div>
       </div>
     </div>
