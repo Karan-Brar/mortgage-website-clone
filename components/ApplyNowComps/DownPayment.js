@@ -4,6 +4,7 @@ import { downPaymentValidation } from "@/schemas/validation-schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
+
 const DownPayment = (props) => {
   const componentType = "downPayment";
   const [data, setData] = useState("");
