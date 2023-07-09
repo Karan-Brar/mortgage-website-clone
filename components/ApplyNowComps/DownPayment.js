@@ -1,54 +1,66 @@
 import { useState } from "react";
 import StepNumber from "./StepNumber";
-
+import { downPaymentValidation } from "@/schemas/validation-schemas";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import InputMask from "react-input-mask";
 const DownPayment = (props) => {
   const componentType = "downPayment";
-  const [filled, setFilled] = useState(false);
   const [data, setData] = useState("");
+  const {
+    register,
+    handleSubmit,
+    trigger,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(downPaymentValidation),
+  });
 
-  const enableAndSet = () => {
-    setFilled(true);
-    const downPaymentInput = document.getElementById("downPayment").value;
-    setData(downPaymentInput);
+  async function setDataStuff(formData) {
+    // setData(data.downPayment);
+    props.setNext({ data: formData.downPayment, componentType })
+  }
+  const handleInputChange = (e) => {
+    reset();
+    trigger(e.target.name);
   };
-
   return (
     <div className="option-card">
       <StepNumber number="3" />
       <h2 className="heading-question">What is Your Planned Down Payment?</h2>
-      <div className="sm:w-1/2 w-5/6  mx-auto flex flex-col">
-        <div className="mt-24 flex justify-center">
-          <span className="font-franklin text-2xl p-3 font-semibold self-center bg-blue-200 text-slate-100">
-            $
-          </span>
-          <input
-            type="text"
-            name="downPayment"
-            id="downPayment"
-            className="options-input"
-            placeholder="e.g. 200,000"
-            onInputCapture={() => enableAndSet()}
-            required="true"
-          />
+      <form onSubmit={handleSubmit((data) => setDataStuff(data))} className="flex flex-col w-5/6 mx-auto sm:w-1/2">
+        <div className="flex flex-col justify-center mt-24">
+          <div className="flex ">
+            <span className="p-3 text-3xl font-semibold bg-blue-200 b-2 font-franklin text-slate-100">
+              $
+            </span>
+            <InputMask
+              mask="999,999,999"
+              maskChar=""
+              {...register("downPayment")}
+              name="downPayment"
+              id="downPayment"
+              className="options-input"
+              placeholder="e.g. 200,000"
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <p>{errors.downPayment?.message}</p>
         </div>
 
-        {filled === false && (
-          <button className="disabled-next-button">Next</button>
-        )}
-
-        {filled === true && (
-          <button
-            className="enabled-next-button"
-            onClick={() => props.setNext({ data, componentType })}
-          >
-            Next
-          </button>
-        )}
+        <button
+          type="submit"
+          className="enabled-next-button"
+        >
+          Next
+        </button>
 
         <button className="back-button" onClick={props.setPrev}>
           Back
         </button>
-      </div>
+      </form>
     </div>
   );
 };
