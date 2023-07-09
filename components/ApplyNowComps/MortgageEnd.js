@@ -8,6 +8,12 @@ const MortgageEnd = (props) => {
 
   const enableAndSelect = (e, endDate) => {
     const itemType = e.target.tagName;
+    const formInput = document.getElementById("endDate");
+
+    if(endDate === "Not Sure")
+    {
+      formInput.value = "";
+    }
 
     if (itemType.toLowerCase() === "input") {
       endDate = document.getElementById("endDate").value;
