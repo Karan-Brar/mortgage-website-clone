@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
         <meta name="robots" content="all" />
         <meta
           name="description"
-          content="Mortgage company text"
+          content="Customized Mortgage solutions"
         />
       </Head>
       <NavigationBar />
