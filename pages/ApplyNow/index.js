@@ -16,9 +16,6 @@ const index = () => {
   const [custDownPayment, setCustDownPayment] = useState("")
   const [custGoal, setCustGoal] = useState("")
   const [mortgageEnd, setMortgageEnd] = useState("")
-  const [name, setName] = useState("")
-  const [phoneNum, setPhoneNum] = useState("")
-  const [email, setEmail] = useState("")
 
   const nextComponent = ({ data, componentType }) => {
     setComponent(componentType)
@@ -29,7 +26,6 @@ const index = () => {
       setBuyingPlan(data);
     } else if (componentType === ComponentTypes.DOWN) {
       setCustDownPayment(data);
-      // setMortgageEnd("");
     } else if (componentType === ComponentTypes.GOAL) {
       setCustGoal(data)
     } else if (componentType === ComponentTypes.END) {
@@ -47,7 +43,7 @@ const index = () => {
     let { name, phoneNum, email } = data;
 
     async function sendContactEmail(data) {
-      let response = await fetch("/api/contact/sendContactEmail", {
+      await fetch("/api/contact/sendContactEmail", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -55,14 +51,14 @@ const index = () => {
         body: JSON.stringify(data),
       });
 
-      if (response.status == "200") {
-        //setContactEmailStatus("Email sent");
-      } else {
-        //setContactEmailStatus("An error occured, please try again!");
-      }
+      // if (response.status == "200") {
+      //   //setContactEmailStatus("Email sent");
+      // } else {
+      //   //setContactEmailStatus("An error occured, please try again!");
+      // }
     }
     sendContactEmail({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name });
-    {/* code for email submitting */ }
+
   };
 
 
