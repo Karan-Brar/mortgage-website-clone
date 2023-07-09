@@ -4,7 +4,7 @@ import { Controller } from "react-hook-form";
 export const PhoneNumberInput = ({ control, register }) => {
 	return (
 		<Controller
-			{...register("companyPhoneNumber")}
+			{...register("clientPhoneNumber")}
 			control={control}
 			name="companyPhoneNumber"
 			render={({ field: { onChange, value = "" } }) => {

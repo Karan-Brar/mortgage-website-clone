@@ -5,31 +5,31 @@ import React, { useState } from "react";
 import { PhoneNumberInput } from "@/components/Inputs/phoneNumberInput";
 
 const ContactForm = () => {
-      const [contactEmailStatus, setContactEmailStatus] = useState("");
-      const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        control,
-      } = useForm({
-        resolver: yupResolver(contactFormValidation),
-      });
+  const [contactEmailStatus, setContactEmailStatus] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm({
+    resolver: yupResolver(contactFormValidation),
+  });
 
-      async function sendContactEmail(data) {
-        let response = await fetch("/api/contact/sendContactEmail", {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify(data),
-        });
+  async function sendContactEmail(data) {
+    let response = await fetch("/api/contact/sendContactEmail", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(data),
+    });
 
-        if (response.status == "200") {
-          setContactEmailStatus("Email sent");
-        } else {
-          setContactEmailStatus("An error occured, please try again!");
-        }
-      }  
+    if (response.status == "200") {
+      setContactEmailStatus("Email sent");
+    } else {
+      setContactEmailStatus("An error occured, please try again!");
+    }
+  }
   return (
     <div className="bg-blue-100">
       <div className="flex items-center justify-center py-8">
@@ -39,13 +39,13 @@ const ContactForm = () => {
       </div>
       <form
         onSubmit={handleSubmit((data) => sendContactEmail(data))}
-        className="lg:w-2/5 w-5/6 mx-auto mt-5 sm:mt-12"
+        className="w-5/6 mx-auto mt-5 lg:w-2/5 sm:mt-12"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div className="mb-2 sm:col-span-2">
             <label
               htmlFor="fullName"
-              className="block form-label font-semibold leading-6"
+              className="block font-semibold leading-6 form-label"
             >
               Name
             </label>
@@ -63,7 +63,7 @@ const ContactForm = () => {
           <div className="mb-2 sm:col-span-2">
             <label
               htmlFor="companyPhoneNumber"
-              className="block form-label font-semibold leading-6 "
+              className="block font-semibold leading-6 form-label "
             >
               Phone No
             </label>
@@ -75,32 +75,32 @@ const ContactForm = () => {
               />
             </div>
 
-            <p>{errors.companyPhoneNumber?.message}</p>
+            <p>{errors.clientPhoneNumber?.message}</p>
           </div>
           <div className="mb-2 sm:col-span-2">
             <label
               htmlFor="companyEmail"
-              className="block form-label font-semibold leading-6"
+              className="block font-semibold leading-6 form-label"
             >
               E-Mail
             </label>
 
             <input
-              {...register("companyEmail")}
+              {...register("clientEmail")}
               type="email"
-              name="companyEmail"
-              id="companyEmail"
+              name="clientEmail"
+              id="clientEmail"
               autoComplete="email"
               className="form-input"
             />
 
-            <p>{errors.companyEmail?.message}</p>
+            <p>{errors.clientEmail?.message}</p>
           </div>
 
           <div className="mb-2 sm:col-span-2">
             <label
               htmlFor="contactMessage"
-              className="block form-label font-semibold leading-6 "
+              className="block font-semibold leading-6 form-label "
             >
               What are you looking for?
             </label>
@@ -110,14 +110,14 @@ const ContactForm = () => {
                 name="contactMessage"
                 id="contactMessage"
                 rows={4}
-                className="w-full bg-transparent border border-black rounded-md p-2 outline-none"
+                className="w-full p-2 bg-transparent border border-black rounded-md outline-none"
                 defaultValue={""}
               />
             </div>
             <p>{errors.contactMessage?.message}</p>
           </div>
         </div>
-        <div className="mt-10 pb-10">
+        <div className="pb-10 mt-10">
           <button
             type="submit"
             className="block w-4/6 mx-auto rounded-md bg-blue-200 text-slate-50 px-3.5 py-2.5 text-center font-semibold shadow-sm hover:ring-4 hover:ring-lime-100 hover:ring-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-2xl"
