@@ -10,10 +10,18 @@ export default async function handler(req, res) {
 			//check if input is valid
 			//const inputIsValid = contactFormValidation.isValid(req.body);
 			//Destructure data to only get inputs we need
-			const { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name } = req.body;
+
+			let contactInfoObject = Object.fromEntries(
+				Object.entries(req.body).map(([k, v]) => {
+					if (v != null && v !== "") {
+						return [k, v];
+					}
+					return [k, 'N\\A']; // Return an empty string for entries that don't meet the condition
+				})
+			);
 
 			//Create an object to clarify what we are sending
-			const contactInfoObject = { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name };
+
 
 			//Send email containing the information we received 
 			sendContactEmail(contactInfoObject);

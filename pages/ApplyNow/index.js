@@ -57,7 +57,7 @@ const index = () => {
       //   //setContactEmailStatus("An error occured, please try again!");
       // }
     }
-    sendContactEmail({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name });
+    sendContactEmail({ custRequest, email, phoneNum, custGoal, custDownPayment, buyingPlan, mortgageEnd, name });
 
   };
 

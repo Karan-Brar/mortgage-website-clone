@@ -12,6 +12,7 @@ export const sendContactEmail = (inquiryInfo) => {
 
 	const { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name } = inquiryInfo;
 
+
 	const msg = {
 		to: "thenry.he@gmail.com", // Change to your recipient
 		from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
