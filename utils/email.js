@@ -10,7 +10,7 @@ export const sendContactEmail = (inquiryInfo) => {
 
 	sgMail.setApiKey(process.env.SEND_GRID_KEY);
 
-	const { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name } = inquiryInfo;
+	const { custRequest, clientEmail, clientPhoneNumber, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, fullName } = inquiryInfo;
 
 
 	const msg = {
@@ -18,7 +18,7 @@ export const sendContactEmail = (inquiryInfo) => {
 		from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
 		subject: "Test Client email",
 
-		html: emailTemplate({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name }),
+		html: emailTemplate({ custRequest, clientEmail, clientPhoneNumber, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, fullName }),
 	};
 	sgMail
 		.send(msg)

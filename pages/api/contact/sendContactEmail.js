@@ -4,10 +4,6 @@ import { contactFormValidation, downPaymentValidation, mortgageTermValidation } 
 export default async function handler(req, res) {
 	if (req.method === "POST") {
 		try {
-			console.log(req.body)
-			console.log(req.body)
-
-
 			if (req.body.mortgageEnd != "N/A") {
 				await mortgageTermValidation.validate(req.body);
 
@@ -15,15 +11,7 @@ export default async function handler(req, res) {
 			await contactFormValidation.validate(req.body);
 			await downPaymentValidation.validate(req.body);
 
-			let contactInfoObject = Object.fromEntries(
-				Object.entries(req.body).map(([k, v]) => {
-					if (v != null && v !== "") {
-						return [k, v];
-					}
-				})
-			);
-
-			sendContactEmail(contactInfoObject);
+			sendContactEmail(req.body);
 			res.status(200).json({ message: "success" });
 		} catch (error) {
 			if (error.name === "ValidationError") {
