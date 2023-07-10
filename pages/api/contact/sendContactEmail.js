@@ -1,37 +1,37 @@
 import { sendContactEmail } from "@/utils/email";
-
+import { contactFormValidation, downPaymentValidation, mortgageTermValidation } from "@/schemas"
 //TODO Remove unused inputs from email
 //API Error handling
 //Finish email setup
 export default async function handler(req, res) {
-
 	if (req.method === "POST") {
 		try {
-			//check if input is valid
-			//const inputIsValid = contactFormValidation.isValid(req.body);
-			//Destructure data to only get inputs we need
+			// Validate the request body against the schema
+			await contactFormValidation.validate(req.body);
+			await downPaymentValidation.validate(req.body);
+			await mortgageTermValidation.validate(req.body);
 
 			let contactInfoObject = Object.fromEntries(
 				Object.entries(req.body).map(([k, v]) => {
 					if (v != null && v !== "") {
 						return [k, v];
 					}
-					return [k, 'N\\A']; // Return an empty string for entries that don't meet the condition
+					return [k, "N/A"];
 				})
 			);
 
-			//Create an object to clarify what we are sending
-
-
-			//Send email containing the information we received 
+			// Send email containing the information we received
 			sendContactEmail(contactInfoObject);
 			res.status(200).json({ message: "success" });
-
-		} catch (e) {
-			console.log(e);
-			res.status(500).json({
-				message: "Other error",
-			});
+		} catch (error) {
+			if (error.name === "ValidationError") {
+				// Validation error occurred
+				res.status(400).json({ message: error.message });
+			} else {
+				// Other error occurred
+				console.error(error);
+				res.status(500).json({ message: "Internal Server Error" });
+			}
 		}
 	}
-};
+}
