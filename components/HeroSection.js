@@ -26,7 +26,6 @@ const HeroSection = () => {
       });
   }, []);
 
-
   return (
     <div className="w-full bg-slate-50 sm:flex font-franklin">
       <div className="flex-col sm:w-1/2">
@@ -77,7 +76,9 @@ const HeroSection = () => {
                 />
               </svg>
             </span>
-            <span className="mark-text">Quick Approval on your mortgage</span>
+            <span className="mark-text">
+              Quick Approval on your mortgage
+            </span>
           </div>
 
           <div className="mark-point">
@@ -97,7 +98,9 @@ const HeroSection = () => {
                 />
               </svg>
             </span>
-            <span className="mark-text">Your mortgage will close on time</span>
+            <span className="mark-text">
+              Your mortgage will close on time
+            </span>
           </div>
 
           <div className="mark-point">
@@ -126,7 +129,10 @@ const HeroSection = () => {
         <div className="w-4/5 mx-auto">
           <div className="flex justify-center mx-auto w-fit sm:mx-0 sm:mb-36 hover:cursor-pointer">
             <div className="text-2xl font-bold text-slate-100 place-self-center">
-              <Link href="/ApplyNow" className="px-10 py-6 bg-blue-200 rounded-lg">
+              <Link
+                href="/ApplyNow"
+                className="px-10 py-6 bg-blue-200 rounded-lg"
+              >
                 Estimate My Rate
               </Link>
             </div>
@@ -152,6 +158,6 @@ const HeroSection = () => {
       </div>
     </div>
   );
-}
+};
 
-export default HeroSection
+export default HeroSection;

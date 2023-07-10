@@ -9,7 +9,10 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>Sky Mortgages</title>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+        />
         <meta name="robots" content="all" />
         <meta
           name="description"

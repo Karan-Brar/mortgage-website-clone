@@ -1,12 +1,15 @@
 import { sendContactEmail } from "@/utils/email";
-import { contactFormValidation, downPaymentValidation, mortgageTermValidation } from "@/schemas/validation-schemas"
+import {
+	contactFormValidation,
+	downPaymentValidation,
+	mortgageTermValidation,
+} from "@/schemas/validation-schemas";
 
 export default async function handler(req, res) {
 	if (req.method === "POST") {
 		try {
 			if (req.body.mortgageEnd != "N/A") {
 				await mortgageTermValidation.validate(req.body);
-
 			}
 			await contactFormValidation.validate(req.body);
 			await downPaymentValidation.validate(req.body);
@@ -16,10 +19,8 @@ export default async function handler(req, res) {
 		} catch (error) {
 			if (error.name === "ValidationError") {
 				// Validation error occurred
-				res.status(400).json({ message: error.message });
+				res.status(400).json({ message: "An error occurred" });
 			} else {
-				// Other error occurred
-				console.error(error);
 				res.status(500).json({ message: "Internal Server Error" });
 			}
 		}

@@ -1,11 +1,10 @@
-import { useState } from "react";
 import StepNumber from "./StepNumber";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
 import { mortgageTermValidation } from "@/schemas/validation-schemas";
 
-const MortgageEnd = (props) => {
+const MortgageEnd = props => {
   const componentType = "mortgageEnd";
   const {
     register,
@@ -17,15 +16,12 @@ const MortgageEnd = (props) => {
     resolver: yupResolver(mortgageTermValidation),
   });
   async function setDataStuff(formData) {
-    // setData(data.downPayment);
-
-    props.setNext({ data: formData.mortgageEnd, componentType })
+    props.setNext({ data: formData.mortgageEnd, componentType });
   }
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     reset();
     trigger(e.target.name);
   };
-
 
   return (
     <div className="option-card">
@@ -33,7 +29,10 @@ const MortgageEnd = (props) => {
       <h2 className="heading-question">
         When Does Your Current Mortgage Term End?
       </h2>
-      <form onSubmit={handleSubmit((data) => setDataStuff(data))} className="button-list">
+      <form
+        onSubmit={handleSubmit(data => setDataStuff(data))}
+        className="button-list"
+      >
         <div className="flex flex-col">
           <InputMask
             mask="99/9999"
@@ -48,20 +47,15 @@ const MortgageEnd = (props) => {
           <p>{errors.mortgageEnd?.message}</p>
         </div>
 
-
         <button
           onClick={() => setDataStuff("N/A")}
           className="choice-button"
         >
           Not Sure
         </button>
-        <button
-          type="submit"
-          className="enabled-next-button"
-        >
+        <button type="submit" className="enabled-next-button">
           Next
         </button>
-
 
         <button className="back-button" onClick={props.setPrev}>
           Back

@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const LendingPartners = () => {
   return (
@@ -124,6 +124,6 @@ const LendingPartners = () => {
       </div>
     </div>
   );
-}
+};
 
-export default LendingPartners
+export default LendingPartners;

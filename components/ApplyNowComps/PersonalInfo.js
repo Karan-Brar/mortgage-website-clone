@@ -31,11 +31,8 @@ const PersonalInfo = props => {
     setData(personalInfo);
   };
   function sendContactEmail(formData) {
-    console.log("dd")
     let temp = data;
-    temp += formData
-    console.log(props)
-    console.log(formData)
+    temp += formData;
     props.submitForm({ data: formData, componentType });
   }
   return (
@@ -99,11 +96,9 @@ const PersonalInfo = props => {
               className="form-input"
             />
             <p>{errors.clientEmail?.message}</p>
-
           </div>
           <button className="enabled-next-button">Submit</button>
         </form>
-
 
         <button className="back-button" onClick={props.setPrev}>
           Back
