@@ -39,9 +39,10 @@ const index = () => {
 
   const FinalSubmit = ({ data, componentType }) => {
     setComponent(componentType);
-
-    let { name, phoneNum, email } = data;
-
+    console.log("yo")
+    console.log(data)
+    let { fullName, clientPhoneNumber, clientEmail } = data;
+    console.log(custDownPayment)
     async function sendContactEmail(data) {
       await fetch("/api/contact/sendContactEmail", {
         headers: {
@@ -57,7 +58,7 @@ const index = () => {
       //   //setContactEmailStatus("An error occured, please try again!");
       // }
     }
-    sendContactEmail({ custRequest, email, phoneNum, custGoal, custDownPayment, buyingPlan, mortgageEnd, name });
+    sendContactEmail({ custRequest, clientEmail, clientPhoneNumber, custGoal, custDownPayment, buyingPlan, mortgageEnd, fullName });
 
   };
 

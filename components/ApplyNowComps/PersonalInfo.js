@@ -1,87 +1,109 @@
 import { useState } from "react";
 import StepNumber from "./StepNumber";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { contactFormValidation } from "@/schemas/validation-schemas";
+import { PhoneNumberInput } from "@/components/Inputs/phoneNumberInput";
 
-const PersonalInfo = (props) => {
+const PersonalInfo = props => {
   const componentType = "personalInfo";
   const [filled, setFilled] = useState(false);
   const [data, setData] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm({
+    resolver: yupResolver(contactFormValidation),
+  });
 
   const enableAndSet = () => {
     setFilled(true);
     const name = document.getElementById("name").value;
     const phoneNum = document.getElementById("number").value;
     const email = document.getElementById("email").value;
-    const personalInfo =
-    {
+    const personalInfo = {
       name,
       phoneNum,
-      email
-    }
+      email,
+    };
     setData(personalInfo);
   };
-
+  function sendContactEmail(formData) {
+    console.log("dd")
+    let temp = data;
+    temp += formData
+    console.log(props)
+    console.log(formData)
+    props.submitForm({ data: formData, componentType });
+  }
   return (
     <div className="option-card">
       <StepNumber number="5" />
-      <h2 className="heading-question">Tell Us a Little About Yourself</h2>
+      <h2 className="heading-question">
+        Tell Us a Little About Yourself
+      </h2>
       <div className="flex flex-col w-full mx-auto sm:w-3/4">
         {/* Why form? I mean semantically it makes sense but the following buttons types arent set so we are actually "submitting" to no where */}
-        <form className="flex flex-col items-center justify-center">
+        <form
+          onSubmit={handleSubmit(data => sendContactEmail(data))}
+          className="flex flex-col items-center justify-center"
+        >
           <div className="options-input-area !mt-9">
-            <label htmlFor="name" className="options-input-label">
+            <label
+              htmlFor="fullName"
+              className="block font-semibold leading-6 form-label"
+            >
               Name
             </label>
             <input
+              {...register("fullName")}
               type="text"
-              name="name"
-              id="name"
-              className="options-input-2"
-              placeholder="Your Name"
-              onInputCapture={() => enableAndSet()}
-              required="true"
-            />
+              id="fullName"
+              name="fullName"
+              className="form-input"
+            />{" "}
+            <p>{errors.fullName?.message}</p>
           </div>
           <div className="options-input-area">
-            <label htmlFor="number" className="options-input-label">
-              Phone Number
+            <label
+              htmlFor="companyPhoneNumber"
+              className="block font-semibold leading-6 form-label "
+            >
+              Phone No
             </label>
-            <input
-              type="tel"
-              name="number"
-              id="number"
-              className="options-input-2"
-              placeholder="Your Phone Number"
-              onInputCapture={() => enableAndSet()}
-              required="true"
-            />
+            <div className="relative">
+              <PhoneNumberInput
+                control={control}
+                register={register}
+                className="form-input"
+              />{" "}
+              <p>{errors.clientPhoneNumber?.message}</p>
+            </div>
           </div>
           <div className="options-input-area">
-            <label htmlFor="email" className="options-input-label">
+            <label
+              htmlFor="companyEmail"
+              className="block font-semibold leading-6 form-label"
+            >
               E-Mail
             </label>
+
             <input
+              {...register("clientEmail")}
               type="email"
-              name="email"
-              id="email"
-              className="options-input-2"
-              placeholder="Your E-Mail"
-              onInputCapture={() => enableAndSet()}
-              required="true"
+              name="clientEmail"
+              id="clientEmail"
+              autoComplete="email"
+              className="form-input"
             />
+            <p>{errors.clientEmail?.message}</p>
+
           </div>
+          <button className="enabled-next-button">Submit</button>
         </form>
 
-
-        {filled === true ?
-          <button
-            className="enabled-next-button"
-            onClick={() => props.submitForm({ data, componentType })}
-          >
-            Submit
-          </button>
-          :
-          <button className="disabled-next-button">Submit</button>
-        }
 
         <button className="back-button" onClick={props.setPrev}>
           Back
@@ -89,6 +111,6 @@ const PersonalInfo = (props) => {
       </div>
     </div>
   );
-}
+};
 
-export default PersonalInfo
+export default PersonalInfo;

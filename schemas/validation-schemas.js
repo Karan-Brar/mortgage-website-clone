@@ -16,10 +16,10 @@ export const contactFormValidation = yup.object({
 		.min(50, "Please provide more information (50 character minimum)"),
 });
 export const downPaymentValidation = yup.object({
-	downPayment: yup.string().required("Incorrect amount entered"),
+	custDownPayment: yup.string().required("Incorrect amount entered"),
 
 });
 export const mortgageTermValidation = yup.object({
-	endDate: yup.string().matches(mortgageDataRange, "Incorrect date entered").required("You forgot the date"),
+	mortgageEnd: yup.string().matches(mortgageDataRange, "Incorrect date entered").required("You forgot the date"),
 
 });

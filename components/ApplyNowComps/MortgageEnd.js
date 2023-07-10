@@ -19,7 +19,7 @@ const MortgageEnd = (props) => {
   async function setDataStuff(formData) {
     // setData(data.downPayment);
 
-    props.setNext({ data: formData.endDate ? formData.endDate : "N/A", componentType })
+    props.setNext({ data: formData.mortgageEnd ? formData.mortgageEnd : "N/A", componentType })
   }
   const handleInputChange = (e) => {
     reset();
@@ -38,14 +38,14 @@ const MortgageEnd = (props) => {
           <InputMask
             mask="99/9999"
             maskChar=""
-            {...register("endDate")}
-            name="endDate"
-            id="endDate"
+            {...register("mortgageEnd")}
+            name="mortgageEnd"
+            id="mortgageEnd"
             className="mt-24 options-input"
             placeholder="MM/YYYY"
             onChange={handleInputChange}
           />
-          <p>{errors.endDate?.message}</p>
+          <p>{errors.mortgageEnd?.message}</p>
         </div>
 
 

@@ -20,7 +20,7 @@ const DownPayment = (props) => {
 
   async function setDataStuff(formData) {
     // setData(data.downPayment);
-    props.setNext({ data: formData.downPayment, componentType })
+    props.setNext({ data: formData.custDownPayment, componentType })
   }
   const handleInputChange = (e) => {
     reset();
@@ -39,16 +39,16 @@ const DownPayment = (props) => {
             <InputMask
               mask="999,999,999"
               maskChar=""
-              {...register("downPayment")}
-              name="downPayment"
-              id="downPayment"
+              {...register("custDownPayment")}
+              name="custDownPayment"
+              id="custDownPayment"
               className="options-input"
               placeholder="e.g. 200,000"
               onChange={handleInputChange}
             />
           </div>
 
-          <p>{errors.downPayment?.message}</p>
+          <p>{errors.custDownPayment?.message}</p>
         </div>
 
         <button

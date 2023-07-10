@@ -6,7 +6,7 @@ export const PhoneNumberInput = ({ control, register }) => {
 		<Controller
 			{...register("clientPhoneNumber")}
 			control={control}
-			name="companyPhoneNumber"
+			name="clientPhoneNumber"
 			render={({ field: { onChange, value = "" } }) => {
 				return (
 					<InputMask
