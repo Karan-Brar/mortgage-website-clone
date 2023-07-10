@@ -19,7 +19,7 @@ const index = () => {
 
   const nextComponent = ({ data, componentType }) => {
     setComponent(componentType);
-
+    0;
     if (componentType === ComponentTypes.REQUEST) {
       setCustRequest(data);
     } else if (componentType === ComponentTypes.PURCHASE) {
@@ -33,7 +33,7 @@ const index = () => {
     }
   };
 
-  const prevComponent = componentType => {
+  const prevComponent = (componentType) => {
     setComponent(componentType);
   };
 
@@ -71,15 +71,14 @@ const index = () => {
           }
         />
       )}
-      {component === ComponentTypes.REQUEST &&
-        custRequest == "Purchase" && (
-          <PurchasePlan
-            setNext={({ data, componentType }) =>
-              nextComponent({ data, componentType })
-            }
-            setPrev={() => prevComponent("main-options")}
-          />
-        )}
+      {component === ComponentTypes.REQUEST && custRequest == "Purchase" && (
+        <PurchasePlan
+          setNext={({ data, componentType }) =>
+            nextComponent({ data, componentType })
+          }
+          setPrev={() => prevComponent("main-options")}
+        />
+      )}
       {component === ComponentTypes.REQUEST &&
         custRequest === "Refinance/Renew" && (
           <YourGoal
@@ -107,18 +106,17 @@ const index = () => {
       )}
       {(component === ComponentTypes.END ||
         component == ComponentTypes.DOWN) && (
-          <CreditScore
-            setNext={({ data, componentType }) =>
-              nextComponent({ data, componentType })
-            }
-            setPrev={() => {
-              mortgageEnd === ""
-                ? prevComponent(ComponentTypes.PURCHASE)
-                : prevComponent(ComponentTypes.GOAL);
-            }}
-          />
-        )}
-			//todo
+        <CreditScore
+          setNext={({ data, componentType }) =>
+            nextComponent({ data, componentType })
+          }
+          setPrev={() => {
+            mortgageEnd === ""
+              ? prevComponent(ComponentTypes.PURCHASE)
+              : prevComponent(ComponentTypes.GOAL);
+          }}
+        />
+      )}
       {component === "creditScore" && (
         <PersonalInfo
           submitForm={({ data, componentType }) =>

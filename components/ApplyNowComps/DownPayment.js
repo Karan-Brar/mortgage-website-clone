@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
 
-const DownPayment = props => {
+const DownPayment = (props) => {
   const componentType = "downPayment";
   const [data, setData] = useState("");
   const {
@@ -21,21 +21,19 @@ const DownPayment = props => {
   async function setDataStuff(formData) {
     props.setNext({ data: formData.custDownPayment, componentType });
   }
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     reset();
     trigger(e.target.name);
   };
   return (
     <div className="option-card">
       <StepNumber number="3" />
-      <h2 className="heading-question">
-        What is Your Planned Down Payment?
-      </h2>
+      <h2 className="heading-question">What is Your Planned Down Payment?</h2>
       <form
-        onSubmit={handleSubmit(data => setDataStuff(data))}
+        onSubmit={handleSubmit((data) => setDataStuff(data))}
         className="flex flex-col w-5/6 mx-auto sm:w-1/2"
       >
-        <div className="flex flex-col justify-center mt-24">
+        <div className="flex flex-col items-center justify-center mt-24">
           <div className="flex ">
             <span className="p-3 text-3xl font-semibold bg-blue-200 b-2 font-franklin text-slate-100">
               $
