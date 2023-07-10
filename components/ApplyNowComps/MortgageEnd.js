@@ -19,7 +19,7 @@ const MortgageEnd = (props) => {
   async function setDataStuff(formData) {
     // setData(data.downPayment);
 
-    props.setNext({ data: formData.mortgageEnd ? formData.mortgageEnd : "N/A", componentType })
+    props.setNext({ data: formData.mortgageEnd, componentType })
   }
   const handleInputChange = (e) => {
     reset();

@@ -14,8 +14,8 @@ const index = () => {
   const [custRequest, setCustRequest] = useState("");
   const [buyingPlan, setBuyingPlan] = useState("");
   const [custDownPayment, setCustDownPayment] = useState("")
-  const [custGoal, setCustGoal] = useState("")
-  const [mortgageEnd, setMortgageEnd] = useState("")
+  const [custGoal, setCustGoal] = useState("N/A")
+  const [mortgageEnd, setMortgageEnd] = useState("N/A")
 
   const nextComponent = ({ data, componentType }) => {
     setComponent(componentType)
