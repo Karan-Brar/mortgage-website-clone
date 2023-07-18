@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const LendingPartners = () => {
   return (
@@ -13,9 +13,9 @@ const LendingPartners = () => {
             src="/assets/images/home-trust.png"
             alt="Home Trust Logo"
             width={160}
-            quality={75}
             height={160}
-            className="hidden partner-logo sm:block"
+            quality={75}
+            className="hidden mt-5 partner-logo sm:block"
           />
           <Image
             src="/assets/images/home-trust.png"
@@ -124,6 +124,6 @@ const LendingPartners = () => {
       </div>
     </div>
   );
-}
+};
 
-export default LendingPartners
+export default LendingPartners;

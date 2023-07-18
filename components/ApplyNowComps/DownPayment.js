@@ -4,6 +4,7 @@ import { downPaymentValidation } from "@/schemas/validation-schemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
+
 const DownPayment = (props) => {
   const componentType = "downPayment";
   const [data, setData] = useState("");
@@ -18,8 +19,7 @@ const DownPayment = (props) => {
   });
 
   async function setDataStuff(formData) {
-    // setData(data.downPayment);
-    props.setNext({ data: formData.downPayment, componentType })
+    props.setNext({ data: formData.custDownPayment, componentType });
   }
   const handleInputChange = (e) => {
     reset();
@@ -29,8 +29,11 @@ const DownPayment = (props) => {
     <div className="option-card">
       <StepNumber number="3" />
       <h2 className="heading-question">What is Your Planned Down Payment?</h2>
-      <form onSubmit={handleSubmit((data) => setDataStuff(data))} className="flex flex-col w-5/6 mx-auto sm:w-1/2">
-        <div className="flex flex-col justify-center mt-24">
+      <form
+        onSubmit={handleSubmit((data) => setDataStuff(data))}
+        className="flex flex-col w-5/6 mx-auto sm:w-1/2"
+      >
+        <div className="flex flex-col items-center justify-center mt-24">
           <div className="flex ">
             <span className="p-3 text-3xl font-semibold bg-blue-200 b-2 font-franklin text-slate-100">
               $
@@ -38,22 +41,19 @@ const DownPayment = (props) => {
             <InputMask
               mask="999,999,999"
               maskChar=""
-              {...register("downPayment")}
-              name="downPayment"
-              id="downPayment"
+              {...register("custDownPayment")}
+              name="custDownPayment"
+              id="custDownPayment"
               className="options-input"
               placeholder="e.g. 200,000"
               onChange={handleInputChange}
             />
           </div>
 
-          <p>{errors.downPayment?.message}</p>
+          <p>{errors.custDownPayment?.message}</p>
         </div>
 
-        <button
-          type="submit"
-          className="enabled-next-button"
-        >
+        <button type="submit" className="enabled-next-button">
           Next
         </button>
 

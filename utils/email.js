@@ -3,28 +3,48 @@ import Handlebars from "handlebars";
 import fs from "fs";
 
 export const sendContactEmail = (inquiryInfo) => {
-	//somehow load below template
-	const emailTemplate = Handlebars.compile(
-		fs.readFileSync(process.cwd() + "/emails/contact-email.html", "utf-8")
-	);
+  //somehow load below template
+  const emailTemplate = Handlebars.compile(
+    fs.readFileSync(process.cwd() + "/emails/contact-email.html", "utf-8")
+  );
 
-	sgMail.setApiKey(process.env.SEND_GRID_KEY);
+  sgMail.setApiKey(process.env.SEND_GRID_KEY);
 
-	const { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name } = inquiryInfo;
+  const {
+    custRequest,
+    clientEmail,
+    clientPhoneNumber,
+    data,
+    custGoal,
+    custDownPayment,
+    buyingPlan,
+    mortgageEnd,
+    fullName,
+  } = inquiryInfo;
 
-	const msg = {
-		to: "thenry.he@gmail.com", // Change to your recipient
-		from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
-		subject: "Test Client email",
+  const msg = {
+    to: clientEmail, // Change to your recipient
+    from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
+    subject: "Enquiry: " + clientEmail,
 
-		html: emailTemplate({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name }),
-	};
-	sgMail
-		.send(msg)
-		.then(() => {
-			console.log("Email sent!");
-		})
-		.catch((error) => {
-			console.error(error);
-		});
+    html: emailTemplate({
+      custRequest,
+      clientEmail,
+      clientPhoneNumber,
+      data,
+      custGoal,
+      custDownPayment,
+      buyingPlan,
+      mortgageEnd,
+      fullName,
+    }),
+  };
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log("Email sent!");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };

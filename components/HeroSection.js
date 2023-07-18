@@ -4,31 +4,27 @@ import anime from "animejs";
 import Link from "next/link";
 
 const HeroSection = () => {
-      const topDivRef = useRef(null);
-      const bottomDivRef = useRef(null);
+  const topDivRef = useRef(null);
+  const bottomDivRef = useRef(null);
 
-      useEffect(() => {
-        const topDiv = topDivRef.current;
-        const bottomDiv = bottomDivRef.current;
+  useEffect(() => {
+    const topDiv = topDivRef.current;
+    const bottomDiv = bottomDivRef.current;
 
-        const animation = anime.timeline({ duration: 500 });
+    const animation = anime.timeline({ duration: 500 });
 
-        animation
-          .add({
-            targets: topDiv,
-            translateX: ["-100%", 0],
-            easing: "easeInOutSine",
-          })
-          .add({
-            targets: bottomDiv,
-            translateX: ["100%", 0],
-            easing: "easeInOutSine",
-          });
-      }, []);
- const handleScroll = () => {
-    	const targetElement = document.getElementById("contact-section");
-        targetElement.scrollIntoView({ behavior: "smooth" });
- }
+    animation
+      .add({
+        targets: topDiv,
+        translateX: ["-100%", 0],
+        easing: "easeInOutSine",
+      })
+      .add({
+        targets: bottomDiv,
+        translateX: ["100%", 0],
+        easing: "easeInOutSine",
+      });
+  }, []);
 
   return (
     <div className="w-full bg-blue-100 sm:flex font-franklin">
@@ -80,7 +76,9 @@ const HeroSection = () => {
                 />
               </svg>
             </span>
-            <span className="mark-text">Quick Approval on your mortgage</span>
+            <span className="mark-text">
+              Quick Approval on your mortgage
+            </span>
           </div>
 
           <div className="mark-point">
@@ -100,7 +98,9 @@ const HeroSection = () => {
                 />
               </svg>
             </span>
-            <span className="mark-text">Your mortgage will close on time</span>
+            <span className="mark-text">
+              Your mortgage will close on time
+            </span>
           </div>
 
           <div className="mark-point">
@@ -127,9 +127,12 @@ const HeroSection = () => {
         </div>
 
         <div className="w-4/5 mx-auto">
-          <div className="w-fit sm:mx-0 mx-auto flex justify-center sm:mb-36 hover:cursor-pointer">
+          <div className="flex justify-center mx-auto w-fit sm:mx-0 sm:mb-36 hover:cursor-pointer">
             <div className="text-2xl font-bold text-slate-100 place-self-center">
-              <Link href="/ApplyNow" className="py-6 px-10 bg-blue-200 rounded-lg">
+              <Link
+                href="/ApplyNow"
+                className="px-10 py-6 bg-blue-200 rounded-lg"
+              >
                 Estimate My Rate
               </Link>
             </div>
@@ -144,8 +147,9 @@ const HeroSection = () => {
         <Image
           src="/assets/images/happy-future-2.png"
           alt="Happy Future"
-          width={1700}
-          height={1700}
+          priority
+          width={1400}
+          height={1400}
         />
         {/* <div
           ref={bottomDivRef}
@@ -154,6 +158,6 @@ const HeroSection = () => {
       </div>
     </div>
   );
-}
+};
 
-export default HeroSection
+export default HeroSection;

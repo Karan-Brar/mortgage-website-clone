@@ -1,39 +1,26 @@
-import { useState } from "react";
 import StepNumber from "./StepNumber";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import InputMask from "react-input-mask";
+import { mortgageTermValidation } from "@/schemas/validation-schemas";
 
-const MortgageEnd = (props) => {
+const MortgageEnd = props => {
   const componentType = "mortgageEnd";
-  const [selected, setSelected] = useState(false);
-  const [data, setData] = useState("");
-
-  const enableAndSelect = (e, endDate) => {
-    const itemType = e.target.tagName;
-    const formInput = document.getElementById("endDate");
-
-    if(endDate === "Not Sure")
-    {
-      formInput.value = "";
-    }
-
-    if (itemType.toLowerCase() === "input") {
-      endDate = document.getElementById("endDate").value;
-    }
-
-    const buttons = document.getElementsByClassName("choice-button");
-
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[i].classList.remove("selected-choice-button");
-    }
-
-
-    if (itemType.toLowerCase() === "button") {
-      e.target.classList.add("selected-choice-button");
-    }
-
-    console.log("mortgage")
-    console.log(endDate)
-    setSelected(true);
-    setData(endDate);
+  const {
+    register,
+    handleSubmit,
+    trigger,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(mortgageTermValidation),
+  });
+  async function setDataStuff(formData) {
+    props.setNext({ data: formData.mortgageEnd, componentType });
+  }
+  const handleInputChange = e => {
+    reset();
+    trigger(e.target.name);
   };
 
   return (
@@ -42,38 +29,38 @@ const MortgageEnd = (props) => {
       <h2 className="heading-question">
         When Does Your Current Mortgage Term End?
       </h2>
-      <div className="button-list">
-        <input
-          type="text"
-          name="endDate"
-          id="endDate"
-          className="mt-24 options-input"
-          placeholder="MM/YYYY"
-          onInputCapture={(e) => enableAndSelect(e, e.target.value)}
-        // required="true" this doesnt do anything
-        />
+      <form
+        onSubmit={handleSubmit(data => setDataStuff(data))}
+        className="button-list"
+      >
+        <div className="flex flex-col">
+          <InputMask
+            mask="99/9999"
+            maskChar=""
+            {...register("mortgageEnd")}
+            name="mortgageEnd"
+            id="mortgageEnd"
+            className="mt-24 options-input"
+            placeholder="MM/YYYY"
+            onChange={handleInputChange}
+          />
+          <p>{errors.mortgageEnd?.message}</p>
+        </div>
+
         <button
-          onClick={(e) => enableAndSelect(e, "Not Sure")}
+          onClick={() => setDataStuff("N/A")}
           className="choice-button"
         >
           Not Sure
         </button>
-
-        {selected === true ?
-          <button
-            className="enabled-next-button"
-            onClick={() => props.setNext({ data, componentType })}
-          >
-            Next
-          </button>
-          :
-          <button className="disabled-next-button">Next</button>
-        }
+        <button type="submit" className="enabled-next-button">
+          Next
+        </button>
 
         <button className="back-button" onClick={props.setPrev}>
           Back
         </button>
-      </div>
+      </form>
     </div>
   );
 };

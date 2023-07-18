@@ -21,7 +21,9 @@ const MortgageWiki = () => {
 
   const handleClick = () => {
     setTimeout(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % questions.length);
+      setCurrentTextIndex(
+        prevIndex => (prevIndex + 1) % questions.length
+      );
     }, 500);
 
     setTimeout(() => {
@@ -43,14 +45,15 @@ const MortgageWiki = () => {
           quality={75}
         />
         <div
-          className={`flex flex-col items-center ease-in duration-300 ${
-            fadeIn ? "opacity-100" : "opacity-0"
-          }`}
+          className={`flex flex-col items-center ease-in duration-300 ${fadeIn ? "opacity-100" : "opacity-0"
+            }`}
         >
           <div className="px-10 py-5 text-lg font-semibold">
             {questions[currentTextIndex]}
           </div>
-          <div className="px-10 pb-10 text-md">{answers[currentTextIndex]}</div>
+          <div className="px-10 pb-10 text-md">
+            {answers[currentTextIndex]}
+          </div>
         </div>
       </div>
 

@@ -6,11 +6,7 @@ const testimonials = [
   "Transparent communication and timely updates gave me peace of mind. Trustworthy and reliable. Highly recommended",
 ];
 
-const clientNames = [
-  "John Doe",
-  "David Letterman",
-  "Mellisa Rye"
-]
+const clientNames = ["John Doe", "David Letterman", "Mellisa Rye"];
 
 const Testimonials = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -18,12 +14,14 @@ const Testimonials = () => {
 
   const handleClick = () => {
     setTimeout(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      setCurrentTextIndex(
+        prevIndex => (prevIndex + 1) % testimonials.length
+      );
     }, 500);
 
     setTimeout(() => {
       setFadeIn(true);
-    }, 500)
+    }, 500);
   };
 
   return (
@@ -32,16 +30,14 @@ const Testimonials = () => {
         Customer Reviews
       </h1>
       <div className="w-4/5 mx-auto rounded-md lg:w-2/5 bg-slate-50">
-        <div className={`flex flex-col items-center justify-center  ease-in duration-300 ${fadeIn ? "opacity-100" : "opacity-0"
-          }`}>
-          <div
-            className="p-5 "
-          >
+        <div
+          className={`flex flex-col items-center justify-center  ease-in duration-300 ${fadeIn ? "opacity-100" : "opacity-0"
+            }`}
+        >
+          <div className="p-5 ">
             "{testimonials[currentTextIndex]}"
           </div>
-          <div
-            className='pb-5 text-lg'
-          >
+          <div className="pb-5 text-lg">
             - {clientNames[currentTextIndex]}
           </div>
         </div>
@@ -52,7 +48,6 @@ const Testimonials = () => {
         onClick={() => {
           setFadeIn(false);
           handleClick();
-
         }}
       >
         <svg

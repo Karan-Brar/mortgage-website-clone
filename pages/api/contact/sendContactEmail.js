@@ -1,32 +1,28 @@
 import { sendContactEmail } from "@/utils/email";
-import { contactFormValidation } from "@/schemas/validation-schemas";
-export default async function handler(req, res) {
+import {
+	contactFormValidation,
+	downPaymentValidation,
+	mortgageTermValidation,
+} from "@/schemas/validation-schemas";
 
+export default async function handler(req, res) {
 	if (req.method === "POST") {
 		try {
-			//check if input is valid
-			//const inputIsValid = contactFormValidation.isValid(req.body);
-
-			if (true) {
-				//Destructure data to only get inputs we need
-				const { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name } = req.body;
-
-				//Create an object to clarify what we are sending
-				const contactInfoObject = { custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name };
-
-				//Send email containing the information we received 
-				sendContactEmail(contactInfoObject);
-				res.status(200).json({ message: "success" });
-			} else {
-				res.status(400).json({ message: "Validation error" });
+			if (req.body.mortgageEnd != "N/A") {
+				await mortgageTermValidation.validate(req.body);
 			}
+			await contactFormValidation.validate(req.body);
+			await downPaymentValidation.validate(req.body);
 
-
-		} catch (e) {
-			console.log(e);
-			res.status(500).json({
-				message: "Other error",
-			});
+			sendContactEmail(req.body);
+			res.status(200).json({ message: "success" });
+		} catch (error) {
+			if (error.name === "ValidationError") {
+				// Validation error occurred
+				res.status(400).json({ message: "An error occurred" });
+			} else {
+				res.status(500).json({ message: "Internal Server Error" });
+			}
 		}
 	}
-};
+}

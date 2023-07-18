@@ -1,70 +1,66 @@
-import { useState } from 'react';
-import MainOptions from '@/components/ApplyNowComps/MainOptions'
-import PurchasePlan from '@/components/ApplyNowComps/PurchasePlan';
-import DownPayment from '@/components/ApplyNowComps/DownPayment';
-import YourGoal from '@/components/ApplyNowComps/YourGoal';
-import MortgageEnd from '@/components/ApplyNowComps/MortgageEnd';
-import CreditScore from '@/components/ApplyNowComps/CreditScore';
-import PersonalInfo from '@/components/ApplyNowComps/PersonalInfo';
-import ThankYouMessage from '@/components/ApplyNowComps/ThankYouMessage';
-import { ComponentTypes } from '@/Enum/ComponentEnums';
+import { useState } from "react";
+import MainOptions from "@/components/ApplyNowComps/MainOptions";
+import PurchasePlan from "@/components/ApplyNowComps/PurchasePlan";
+import DownPayment from "@/components/ApplyNowComps/DownPayment";
+import YourGoal from "@/components/ApplyNowComps/YourGoal";
+import MortgageEnd from "@/components/ApplyNowComps/MortgageEnd";
+import CreditScore from "@/components/ApplyNowComps/CreditScore";
+import PersonalInfo from "@/components/ApplyNowComps/PersonalInfo";
+import ThankYouMessage from "@/components/ApplyNowComps/ThankYouMessage";
+import { ComponentTypes } from "@/Enum/ComponentEnums";
 
 const index = () => {
   const [component, setComponent] = useState("main-options");
   const [custRequest, setCustRequest] = useState("");
   const [buyingPlan, setBuyingPlan] = useState("");
-  const [custDownPayment, setCustDownPayment] = useState("")
-  const [custGoal, setCustGoal] = useState("")
-  const [mortgageEnd, setMortgageEnd] = useState("")
-  const [name, setName] = useState("")
-  const [phoneNum, setPhoneNum] = useState("")
-  const [email, setEmail] = useState("")
+  const [custDownPayment, setCustDownPayment] = useState("");
+  const [custGoal, setCustGoal] = useState("N/A");
+  const [mortgageEnd, setMortgageEnd] = useState("N/A");
 
   const nextComponent = ({ data, componentType }) => {
-    setComponent(componentType)
-
+    setComponent(componentType);
+    0;
     if (componentType === ComponentTypes.REQUEST) {
       setCustRequest(data);
     } else if (componentType === ComponentTypes.PURCHASE) {
       setBuyingPlan(data);
     } else if (componentType === ComponentTypes.DOWN) {
       setCustDownPayment(data);
-      // setMortgageEnd("");
     } else if (componentType === ComponentTypes.GOAL) {
-      setCustGoal(data)
+      setCustGoal(data);
     } else if (componentType === ComponentTypes.END) {
-      setMortgageEnd(data)
+      setMortgageEnd(data);
     }
-  }
+  };
 
   const prevComponent = (componentType) => {
     setComponent(componentType);
-  }
+  };
 
   const FinalSubmit = ({ data, componentType }) => {
     setComponent(componentType);
 
-    let { name, phoneNum, email } = data;
-
+    let { fullName, clientPhoneNumber, clientEmail } = data;
     async function sendContactEmail(data) {
-      let response = await fetch("/api/contact/sendContactEmail", {
+      await fetch("/api/contact/sendContactEmail", {
         headers: {
           "Content-Type": "application/json",
         },
         method: "POST",
         body: JSON.stringify(data),
       });
-
-      if (response.status == "200") {
-        //setContactEmailStatus("Email sent");
-      } else {
-        //setContactEmailStatus("An error occured, please try again!");
-      }
     }
-    sendContactEmail({ custRequest, email, phoneNum, data, custGoal, custDownPayment, buyingPlan, mortgageEnd, name });
-    {/* code for email submitting */ }
+    sendContactEmail({
+      custRequest,
+      clientEmail,
+      clientPhoneNumber,
+      custGoal,
+      custDownPayment,
+      buyingPlan,
+      mortgageEnd,
+      fullName,
+    });
   };
-
 
   return (
     <div className="lg:pb-72 pb-72 sm:pb-96 bg-slate-100">
@@ -75,7 +71,6 @@ const index = () => {
           }
         />
       )}
-
       {component === ComponentTypes.REQUEST && custRequest == "Purchase" && (
         <PurchasePlan
           setNext={({ data, componentType }) =>
@@ -84,16 +79,15 @@ const index = () => {
           setPrev={() => prevComponent("main-options")}
         />
       )}
-
-      {component === ComponentTypes.REQUEST && custRequest === "Refinance/Renew" && (
-        <YourGoal
-          setNext={({ data, componentType }) =>
-            nextComponent({ data, componentType })
-          }
-          setPrev={() => prevComponent("main-options")}
-        />
-      )}
-
+      {component === ComponentTypes.REQUEST &&
+        custRequest === "Refinance/Renew" && (
+          <YourGoal
+            setNext={({ data, componentType }) =>
+              nextComponent({ data, componentType })
+            }
+            setPrev={() => prevComponent("main-options")}
+          />
+        )}
       {component === ComponentTypes.PURCHASE && (
         <DownPayment
           setNext={({ data, componentType }) =>
@@ -102,7 +96,6 @@ const index = () => {
           setPrev={() => prevComponent(ComponentTypes.REQUEST)}
         />
       )}
-
       {component === ComponentTypes.GOAL && (
         <MortgageEnd
           setNext={({ data, componentType }) =>
@@ -111,8 +104,8 @@ const index = () => {
           setPrev={() => prevComponent(ComponentTypes.REQUEST)}
         />
       )}
-
-      {(component === ComponentTypes.END || component == ComponentTypes.DOWN) && (
+      {(component === ComponentTypes.END ||
+        component == ComponentTypes.DOWN) && (
         <CreditScore
           setNext={({ data, componentType }) =>
             nextComponent({ data, componentType })
@@ -124,7 +117,6 @@ const index = () => {
           }}
         />
       )}
-
       {component === "creditScore" && (
         <PersonalInfo
           submitForm={({ data, componentType }) =>
@@ -133,12 +125,9 @@ const index = () => {
           setPrev={() => prevComponent(ComponentTypes.END)}
         />
       )}
-
-      {component === "personalInfo" && (
-        <ThankYouMessage />
-      )}
+      {component === "personalInfo" && <ThankYouMessage />}
     </div>
   );
-}
+};
 
-export default index
+export default index;
