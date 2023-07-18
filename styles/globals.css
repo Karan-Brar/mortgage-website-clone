@@ -105,7 +105,7 @@ body {
 
   .option-card
   {
-    @apply sm:w-3/4 mx-auto pt-32
+    @apply sm:w-3/4 mx-auto pt-32 min-h-screen
   }
 
   .heading-question

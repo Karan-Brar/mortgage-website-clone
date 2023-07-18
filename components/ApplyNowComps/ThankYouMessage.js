@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const ThankYouMessage = () => {
   return (
-    <div className="option-card h-screen">
+    <div className="option-card">
       <h1 className="sm:w-fit w-5/6 mx-auto text-2xl font-semibold font-franklin text-center mt-32">
         Thank You! Our Team will reach out within 24 hrs with a response
       </h1>

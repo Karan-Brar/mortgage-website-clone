@@ -31,7 +31,7 @@ const HeroSection = () => {
  }
 
   return (
-    <div className="w-full bg-slate-50 sm:flex font-franklin">
+    <div className="w-full bg-blue-100 sm:flex font-franklin">
       <div className="sm:w-1/2 flex-col">
         <h1 className="font-bold lg:text-5xl text-3xl w-4/5 mx-auto pt-20">
           Saving You Money at Every Step.
@@ -136,21 +136,21 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="sm:w-1/2 w-full bg-blue-100 mt-10 sm:mt-0 sm:py-10 py-32 relative flex justify-center items-center overflow-hidden">
-        <div
+      <div className="sm:w-1/2 w-full bg-blue-100 mt-10 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden">
+        {/* <div
           ref={topDivRef}
           className="w-20 h-20 rounded-full absolute lg:top-1 top-7 -left-9 bg-blue-200"
-        ></div>
+        ></div> */}
         <Image
-          src="/assets/images/happy-future.jpg"
+          src="/assets/images/happy-future-2.png"
           alt="Happy Future"
-          width={1400}
-          height={1400}
+          width={1700}
+          height={1700}
         />
-        <div
+        {/* <div
           ref={bottomDivRef}
           className="w-20 h-20 rounded-full absolute lg:bottom-1 bottom-7 -right-9 bg-red-100"
-        ></div>
+        ></div> */}
       </div>
     </div>
   );
