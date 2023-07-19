@@ -86,7 +86,7 @@ body {
 	}
 
   .nav_link {
-		@apply font-medium transition-colors duration-500 ease-in-out hover:text-blue-200;
+		@apply sm:text-lg transition-colors duration-500 ease-in-out hover:text-blue-200 pr-2;
 	}
 
   .option-button{

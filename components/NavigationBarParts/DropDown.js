@@ -16,7 +16,7 @@ const DropDown = ({
     <div
       className={
         desktopMode
-          ? "hidden space-x-4 sm:flex self-center"
+          ? "hidden space-x-4 lg:flex self-center"
           : "dropdown"
       }
       onClick={onClick}

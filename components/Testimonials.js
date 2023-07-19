@@ -6,7 +6,7 @@ const testimonials = [
   "Transparent communication and timely updates gave me peace of mind. Trustworthy and reliable. Highly recommended",
 ];
 
-const clientNames = ["John Doe", "David Letterman", "Mellisa Rye"];
+const clientNames = ["Jean Paul", "Ramandeep Singh", "Neil Santos"];
 
 const Testimonials = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -25,7 +25,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-blue-100 font-franklin" id="customer-reviews">
+    <section className="bg-blue-100 font-franklin min-h-screen flex flex-col justify-center" id="customer-reviews">
       <h1 className="py-10 mx-auto font-bold w-fit heading">
         Customer Reviews
       </h1>
@@ -34,10 +34,10 @@ const Testimonials = () => {
           className={`flex flex-col items-center justify-center  ease-in duration-300 ${fadeIn ? "opacity-100" : "opacity-0"
             }`}
         >
-          <div className="p-5 ">
+          <div className="p-5 sm:text-2xl text-lg font-semibold">
             "{testimonials[currentTextIndex]}"
           </div>
-          <div className="pb-5 text-lg">
+          <div className="pb-5 sm:text-2xl text-md">
             - {clientNames[currentTextIndex]}
           </div>
         </div>

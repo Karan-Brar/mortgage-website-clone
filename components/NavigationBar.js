@@ -7,22 +7,29 @@ export default function NavigationBar() {
   const [toggleDropdown, setToggleDropdown] = useState(false);
   return (
     // Desktop Nav
-    <nav className="flex justify-between w-full p-3 flex-between sm:px-7 font-franklin bg-slate-50">
+    <nav className="flex justify-between w-full p-3 flex-between sm:px-12 sm:py-5 font-franklin bg-slate-50 lg:sticky lg:top-0 z-10 drop-shadow-lg">
       <Link href="/" className="flex gap-2 flex-center">
-        {/* <Image
-          src="/assets/images/main-logo.png"
+        <Image
+          src="/assets/images/mortgage-fox-text-4.png"
           alt="Main Logo"
-          width={50}
-          height={50}
-          className="self-center object-contain logo_img"
-        /> */}
-        <p className="self-center text-lg font-bold">Sky Mortgages</p>
+          width={250}
+          height={250}
+          className="hidden sm:block"
+        />
+        <Image
+          src="/assets/images/mortgage-fox-text-4.png"
+          alt="Main Logo"
+          width={200}
+          height={200}
+          className="sm:hidden"
+        />
+        {/* <p className="self-center text-lg font-bold">Sky Mortgages</p> */}
       </Link>
       {/* Desktop Nav */}
       <DropDown />
 
       {/* Mobile Nav */}
-      <div className="relative z-10 flex self-center sm:hidden">
+      <div className="relative z-10 flex self-center lg:hidden">
         <div className="flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +38,7 @@ export default function NavigationBar() {
             strokeWidth={1.5}
             stroke="currentColor"
             className="w-6 h-6"
-            onClick={() => setToggleDropdown(prev => !prev)}
+            onClick={() => setToggleDropdown((prev) => !prev)}
           >
             <path
               strokeLinecap="round"

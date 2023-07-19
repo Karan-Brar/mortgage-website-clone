@@ -31,7 +31,7 @@ const ContactForm = () => {
     }
   }
   return (
-    <div className="bg-blue-100">
+    <div className="sm:pt-10">
       <div className="flex items-center justify-center py-8">
         <h1 className="mb-2 font-bold tracking-tight heading">
           Shoot us a message
@@ -117,7 +117,7 @@ const ContactForm = () => {
             <p>{errors.contactMessage?.message}</p>
           </div>
         </div>
-        <div className="pb-10 mt-10">
+        <div className="mt-10">
           <button
             type="submit"
             className="block w-4/6 mx-auto rounded-md bg-blue-200 text-slate-50 px-3.5 py-2.5 text-center font-semibold shadow-sm hover:ring-4 hover:ring-lime-100 hover:ring-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-2xl"
