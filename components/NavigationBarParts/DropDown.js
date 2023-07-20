@@ -16,8 +16,8 @@ const DropDown = ({
     <div
       className={
         desktopMode
-          ? "hidden space-x-4 lg:flex self-center"
-          : "dropdown"
+          ? "hidden space-x-4 lg:flex self-center z-20"
+          : "dropdown z-20"
       }
       onClick={onClick}
     >
@@ -26,11 +26,17 @@ const DropDown = ({
       </Link>
       <div
         className={desktopMode ? "link" : "dropdown_link"}
+        onClick={() => ScrollTo("team-section")}
+      >
+        <span className="nav_link">TEAM</span>
+      </div>
+      <div
+        className={desktopMode ? "link" : "dropdown_link"}
         onClick={() => ScrollTo("contact-section")}
       >
         <span className="nav_link">CONTACT</span>
       </div>
-      <div
+      {/* <div
         className={desktopMode ? "link" : "dropdown_link"}
         onClick={() => ScrollTo("customer-reviews")}
       >
@@ -41,11 +47,8 @@ const DropDown = ({
         onClick={() => ScrollTo("q-a")}
       >
         <span className="nav_link">SOLUTIONS</span>
-      </div>
-      <Link
-        href="/ApplyNow"
-        className={desktopMode ? "link" : "dropdown_link"}
-      >
+      </div> */}
+      <Link href="/ApplyNow" className={desktopMode ? "link" : "dropdown_link"}>
         <span className="nav_link">ESTIMATE</span>
       </Link>
     </div>

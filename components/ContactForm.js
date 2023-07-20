@@ -31,9 +31,9 @@ const ContactForm = () => {
     }
   }
   return (
-    <div className="sm:pt-10">
+    <div className="pt-10">
       <div className="flex items-center justify-center py-8">
-        <h1 className="mb-2 font-bold tracking-tight heading">
+        <h1 className="mb-2 mt-12 font-bold tracking-tight heading">
           Shoot us a message
         </h1>
       </div>

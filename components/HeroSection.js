@@ -27,7 +27,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="w-full bg-blue-100 sm:flex font-franklin">
+    <div className="w-full bg-blue-100 sm:flex font-franklin lg:min-h-screen">
       <div className="sm:w-1/2 flex-col">
         <h1 className="font-bold lg:text-5xl text-3xl w-4/5 mx-auto pt-20">
           Saving You Money at Every Step.
@@ -76,12 +76,10 @@ const HeroSection = () => {
                 />
               </svg>
             </span>
-            <span className="mark-text">
-              Quick Approval on your mortgage
-            </span>
+            <span className="mark-text">Quick Approval on your mortgage</span>
           </div>
 
-          <div className="mark-point">
+          {/* <div className="mark-point">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +99,7 @@ const HeroSection = () => {
             <span className="mark-text">
               Your mortgage will close on time
             </span>
-          </div>
+          </div> */}
 
           <div className="mark-point">
             <span>
@@ -124,6 +122,21 @@ const HeroSection = () => {
               Efficent and Transparent Communication
             </span>
           </div>
+        </div>
+
+        <div className="w-4/5 mx-auto mb-12">
+          <h2 className="font-bold lg:text-3xl text-xl">
+            <span className="underline underline-offset-8 decoration-blue-200">
+              Discover a mortgage
+            </span>{" "}
+            as unique as you are.
+          </h2>
+          <h2 className="font-bold lg:text-3xl text-xl mt-5">
+            <span className="underline underline-offset-8 decoration-blue-200">
+              Click Below
+            </span>{" "}
+            to estimate the best mortgage rate for you.
+          </h2>
         </div>
 
         <div className="w-4/5 mx-auto">

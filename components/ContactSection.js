@@ -9,7 +9,7 @@ import ContactForm from "./ContactForm";
 const ContactSection = () => {
   return (
     <section
-      className="items-center font-franklin hover:bottom-0 min-h-screen bg-blue-100"
+      className="items-center font-franklin hover:bottom-0 bg-slate-50"
       id="contact-section"
     >
       <div>

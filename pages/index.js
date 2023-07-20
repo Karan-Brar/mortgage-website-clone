@@ -4,16 +4,15 @@ import LendingPartners from "@/components/LendingPartners";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import MortgageWiki from "@/components/MortgageWiki";
+import OurTeam from "@/components/OurTeam";
 
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>Sky Mortgages</title>
-      </Head>
       <HeroSection />
       <LendingPartners />
       <Testimonials />
+      <OurTeam />
       <MortgageWiki />
       <ContactSection />
     </div>

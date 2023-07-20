@@ -25,7 +25,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-blue-100 font-franklin min-h-screen flex flex-col justify-center" id="customer-reviews">
+    <section className="bg-blue-100 font-franklin flex flex-col justify-center" id="customer-reviews">
       <h1 className="py-10 mx-auto font-bold w-fit heading">
         Customer Reviews
       </h1>

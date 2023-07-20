@@ -152,4 +152,29 @@ body {
   {
     @apply font-franklin text-lg font-semibold
   }
+
+  .intro-card
+  {
+    @apply rounded-2xl bg-slate-100 shadow-[12px_9px_11px_rgba(153,_204,_255,_0.25)] lg:w-3/6 sm:w-4/6 w-5/6 flex flex-col items-center justify-center gap-[3rem] lg:p-12 py-6 xl:flex-row xl:justify-start mb-14
+  }
+
+  .intro-image
+  {
+    @apply rounded-2xl xl:w-2/6 w-3/6
+  }
+
+  .intro-text
+  {
+    @apply w-4/6 flex flex-col items-start justify-start gap-[2rem]
+  }
+
+  .intro-name
+  {
+    @apply text-3xl
+  }
+
+  .intro-about
+  {
+    @apply text-sm text-left
+  }
 }

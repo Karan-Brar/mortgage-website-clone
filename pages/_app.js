@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title>Sky Mortgages</title>
+        <title>Mortgage Fox</title>
         <meta charSet="utf-8" />
         <meta
           name="viewport"

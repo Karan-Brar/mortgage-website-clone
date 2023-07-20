@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="flex justify-between w-full px-5 py-10 bg-slate-50 sm:py-10 sm:px-12 font-franklin drop-shadow-lg">
+    <div className="flex justify-between w-full px-5 py-10 bg-blue-100 sm:py-10 sm:px-12 font-franklin drop-shadow-lg">
       <div>
         <Link href="/" className="">
           <Image
@@ -22,12 +22,17 @@ const Footer = () => {
             className="sm:hidden"
           />
         </Link>
-        <div className="font-franklin mt-3 font-semibold text-sm sm:text-lg">(431) 997-1277</div>
+        <div className="font-franklin mt-3 font-semibold text-sm sm:text-lg">
+          (431) 997-1277
+        </div>
         <div className="font-franklin font-semibold text-sm sm:text-lg">
           armaan.mortgage@gmail.com
         </div>
+        <div className="font-franklin font-semibold text-sm sm:text-lg">
+          278 Marion St, Winnipeg, MB R2H 0T7
+        </div>
 
-        <div className="flex flex-row mt-1">
+        <div className="flex flex-row mt-4">
           <Link
             href="https://instagram.com/mortgagesbyarmaan?igshid=MTIzZWMxMTBkOA=="
             className="mr-4"

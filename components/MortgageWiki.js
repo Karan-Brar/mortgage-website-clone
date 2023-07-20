@@ -33,7 +33,7 @@ const MortgageWiki = () => {
 
   return (
     <section
-      className="font-franklin bg-slate-50 min-h-screen flex flex-col lg:pt-10 pt-5 pb-3"
+      className="font-franklin bg-blue-100 flex flex-col pt-10 pb-3"
       id="q-a"
     >
       <h1 className="py-8 mx-auto font-bold w-fit heading">
@@ -63,7 +63,7 @@ const MortgageWiki = () => {
         </div>
 
         <div
-          className="flex justify-center mt-6 cursor-pointer animate"
+          className="flex justify-center mt-6 cursor-pointer animate-bounce"
           onClick={() => {
             setFadeIn(false);
             handleClick();
