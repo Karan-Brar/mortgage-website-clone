@@ -1,4 +1,5 @@
 import AnimatedImage from './AnimatedImage';
+import Image from 'next/image';
 
 const OurTeam = () => {
 
@@ -7,7 +8,7 @@ const OurTeam = () => {
       className="relative bg-slate-50 w-full min-h-screen flex flex-col items-center justify-start gap-2 text-center text-[2rem] text-black font-libre-franklin sm:flex-col sm:items-center sm:justify-start pt-24"
       id="team-section"
     >
-      <div className="overflow-hidden flex flex-row py-[1.25rem] px-[2.75rem] items-center justify-center gap-4">
+      <div className="overflow-hidden flex flex-col py-[1.25rem] px-[2.75rem] items-center justify-center gap-4">
         <div className="relative">Meet Our Team</div>
       </div>
       <div className="flex flex-col items-center justify-between text-[1.5rem]">

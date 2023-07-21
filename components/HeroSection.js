@@ -30,9 +30,21 @@ const HeroSection = () => {
   return (
     <div className="w-full bg-blue-100 lg:flex font-franklin lg:min-h-screen">
       <div className="lg:w-1/2 flex-col">
-        <h1 className="font-bold sm:text-5xl text-3xl w-4/5 mx-auto pt-20">
-          Saving You Money at Every Step.
-        </h1>
+        <div className="w-4/5 mx-auto pt-20">
+          <h1 className="font-bold sm:text-5xl text-3xl">
+            Saving You Money at Every Step.
+          </h1>
+          {/* <div className="flex flex-row">
+            <h3 className="text-xl">Powered By</h3>
+            <Image
+              src="/assets/images/spooner-group-logo.png"
+              alt="Spooner Group Logo"
+              width={150}
+              height={150}
+              className="relative -top-5"
+            />
+          </div> */}
+        </div>
 
         <div className="flex-col w-5/6 mx-auto my-20">
           <div className="mark-point">
@@ -141,7 +153,7 @@ const HeroSection = () => {
         </div>
 
         <div className="w-4/5 mx-auto">
-          <div className="flex justify-center mx-auto w-fit sm:mx-0 sm:mb-36 hover:cursor-pointer">
+          <div className="flex justify-center mx-auto w-fit sm:mx-0 mb-20 hover:cursor-pointer">
             <div className="text-2xl font-bold text-slate-100 place-self-center">
               <Link
                 href="/ApplyNow"
@@ -152,8 +164,21 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
+
+        <div className="sm:w-4/5 w-fit mx-auto flex flex-row">
+          <h3 className="text-xl">Powered By</h3>
+          <Link href="https://www.spoonergroup.ca/">
+            <Image
+              src="/assets/images/spooner-group-logo.png"
+              alt="Spooner Group Logo"
+              width={150}
+              height={150}
+              className="relative -top-5"
+            />
+          </Link>
+        </div>
       </div>
-      <div className="lg:w-1/2 w-full bg-blue-100 mt-10 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden">
+      <div className="lg:w-1/2 w-full bg-blue-100 sm:mt-10 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden">
         {/* <div
           ref={topDivRef}
           className="w-20 h-20 rounded-full absolute lg:top-1 top-7 -left-9 bg-blue-200"
