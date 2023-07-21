@@ -153,7 +153,7 @@ const HeroSection = () => {
         </div>
 
         <div className="w-4/5 mx-auto">
-          <div className="flex justify-center mx-auto w-fit sm:mx-0 mb-20 hover:cursor-pointer">
+          <div className="flex justify-center mx-auto w-fit sm:mx-0 mb-16 hover:cursor-pointer">
             <div className="text-2xl font-bold text-slate-100 place-self-center">
               <Link
                 href="/ApplyNow"
