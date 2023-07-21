@@ -1,15 +1,25 @@
 import React from "react";
 import Link from "next/link";
 
+
 const DropDown = ({
   desktopMode = true,
   onClick = () => {
     return null;
   },
 }) => {
-  const ScrollTo = elementId => {
-    const targetElement = document.getElementById(elementId);
-    targetElement.scrollIntoView({ behavior: "smooth" });
+  const ScrollTo = async(elementId) => {
+    const optionsPage = document.getElementById("options-page")
+
+    if(optionsPage === null)
+    {
+      const targetElement = document.getElementById(elementId);
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+    else
+    {
+      document.getElementById("home-link").click();
+    }
   };
 
   return (
@@ -21,7 +31,7 @@ const DropDown = ({
       }
       onClick={onClick}
     >
-      <Link href="/" className={desktopMode ? "link" : "dropdown_link"}>
+      <Link href="/" className={desktopMode ? "link" : "dropdown_link"} id="home-link">
         <span className="nav_link">HOME</span>
       </Link>
       <div

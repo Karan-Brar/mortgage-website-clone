@@ -9,15 +9,15 @@ export const PhoneNumberInput = ({ control, register }) => {
 			name="clientPhoneNumber"
 			render={({ field: { onChange, value = "" } }) => {
 				return (
-					<InputMask
-						mask="(999)-999-9999"
-						maskChar=""
-						autoComplete="phone"
-						className="w-full bg-transparent border border-b-black border-t-transparent border-r-transparent border-l-transparent"
-						onChange={onChange}
-						value={value}
-					/>
-				);
+          <InputMask
+            mask="(999)-999-9999"
+            maskChar=""
+            autoComplete="phone"
+            className="form-input"
+            onChange={onChange}
+            value={value}
+          />
+        );
 			}}
 		/>
 	);

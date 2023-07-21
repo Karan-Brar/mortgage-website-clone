@@ -38,7 +38,7 @@ const ContactForm = () => {
         </h1>
       </div>
       <form
-        onSubmit={handleSubmit(data => sendContactEmail(data))}
+        onSubmit={handleSubmit((data) => sendContactEmail(data))}
         className="w-5/6 mx-auto mt-5 lg:w-2/5 sm:mt-12"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -71,7 +71,7 @@ const ContactForm = () => {
               <PhoneNumberInput
                 control={control}
                 register={register}
-                className="form-input"
+                className=""
               />
             </div>
 
@@ -120,7 +120,7 @@ const ContactForm = () => {
         <div className="mt-10">
           <button
             type="submit"
-            className="block w-4/6 mx-auto rounded-md bg-blue-200 text-slate-50 px-3.5 py-2.5 text-center font-semibold shadow-sm hover:ring-4 hover:ring-lime-100 hover:ring-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-2xl"
+            className="block w-4/6 mx-auto rounded-md bg-blue-200 text-slate-50 px-3.5 py-2.5 text-center font-semibold shadow-sm hover:ring-4 hover:ring-lime-100 hover:ring-opacity-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-2xl hover:drop-shadow-[2px_2px_2px_rgba(0,127,255,0.75)]"
           >
             Message Us
           </button>

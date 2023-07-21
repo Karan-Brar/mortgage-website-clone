@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRef, useEffect } from "react";
 import anime from "animejs";
 import Link from "next/link";
+import AnimatedImage from "./AnimatedImage";
 
 const HeroSection = () => {
   const topDivRef = useRef(null);
@@ -27,9 +28,9 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="w-full bg-blue-100 sm:flex font-franklin lg:min-h-screen">
-      <div className="sm:w-1/2 flex-col">
-        <h1 className="font-bold lg:text-5xl text-3xl w-4/5 mx-auto pt-20">
+    <div className="w-full bg-blue-100 lg:flex font-franklin lg:min-h-screen">
+      <div className="lg:w-1/2 flex-col">
+        <h1 className="font-bold sm:text-5xl text-3xl w-4/5 mx-auto pt-20">
           Saving You Money at Every Step.
         </h1>
 
@@ -125,13 +126,13 @@ const HeroSection = () => {
         </div>
 
         <div className="w-4/5 mx-auto mb-12">
-          <h2 className="font-bold lg:text-3xl text-xl">
+          <h2 className="font-bold sm:text-3xl text-xl">
             <span className="underline underline-offset-8 decoration-blue-200">
               Discover a mortgage
             </span>{" "}
             as unique as you are.
           </h2>
-          <h2 className="font-bold lg:text-3xl text-xl mt-5">
+          <h2 className="font-bold sm:text-3xl text-xl mt-5">
             <span className="underline underline-offset-8 decoration-blue-200">
               Click Below
             </span>{" "}
@@ -144,7 +145,7 @@ const HeroSection = () => {
             <div className="text-2xl font-bold text-slate-100 place-self-center">
               <Link
                 href="/ApplyNow"
-                className="px-10 py-6 bg-blue-200 rounded-lg"
+                className="px-10 py-6 bg-blue-200 rounded-lg hover:drop-shadow-[2px_2px_2px_rgba(0,127,255,0.75)]"
               >
                 Estimate My Rate
               </Link>
@@ -152,17 +153,17 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="sm:w-1/2 w-full bg-blue-100 mt-10 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden">
+      <div className="lg:w-1/2 w-full bg-blue-100 mt-10 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden">
         {/* <div
           ref={topDivRef}
           className="w-20 h-20 rounded-full absolute lg:top-1 top-7 -left-9 bg-blue-200"
         ></div> */}
-        <Image
+        <AnimatedImage
           src="/assets/images/happy-future-2.png"
           alt="Happy Future"
           priority
-          width={1400}
-          height={1400}
+          width={1600}
+          height={1600}
         />
         {/* <div
           ref={bottomDivRef}

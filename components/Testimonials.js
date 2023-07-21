@@ -25,14 +25,18 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-blue-100 font-franklin flex flex-col justify-center" id="customer-reviews">
+    <section
+      className="bg-blue-100 font-franklin flex flex-col justify-center duration-1000 transition-all"
+      id="customer-reviews"
+    >
       <h1 className="py-10 mx-auto font-bold w-fit heading">
         Customer Reviews
       </h1>
       <div className="w-4/5 mx-auto rounded-md lg:w-2/5 bg-slate-50">
         <div
-          className={`flex flex-col items-center justify-center  ease-in duration-300 ${fadeIn ? "opacity-100" : "opacity-0"
-            }`}
+          className={`flex flex-col items-center justify-center  ease-in duration-300 ${
+            fadeIn ? "opacity-100" : "opacity-0"
+          }`}
         >
           <div className="p-5 sm:text-2xl text-lg font-semibold">
             "{testimonials[currentTextIndex]}"

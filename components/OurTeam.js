@@ -1,18 +1,23 @@
-import React from 'react'
+import AnimatedImage from './AnimatedImage';
 
 const OurTeam = () => {
-  return (
-    <div className="relative bg-slate-50 w-full min-h-screen flex flex-col items-center justify-start gap-2 text-center text-[2rem] text-black font-libre-franklin sm:flex-col sm:items-center sm:justify-start pt-24" id="team-section">
 
+  return (
+    <div
+      className="relative bg-slate-50 w-full min-h-screen flex flex-col items-center justify-start gap-2 text-center text-[2rem] text-black font-libre-franklin sm:flex-col sm:items-center sm:justify-start pt-24"
+      id="team-section"
+    >
       <div className="overflow-hidden flex flex-row py-[1.25rem] px-[2.75rem] items-center justify-center gap-4">
         <div className="relative">Meet Our Team</div>
       </div>
       <div className="flex flex-col items-center justify-between text-[1.5rem]">
         <div className="intro-card">
-          <img
-            className="w-4/6 xl:w-2/5"
+          <AnimatedImage
+            className="w-4/6 xl:w-2/5 rounded-2xl"
             alt="Armaan Brar"
             src="/assets/images/armaan-brar.jpg"
+            width={500}
+            height={500}
           />
           <div className="intro-text">
             <b className="intro-name">Armaan Brar</b>
@@ -34,13 +39,13 @@ const OurTeam = () => {
           </div>
         </div>
 
-
-
         <div className="intro-card">
-          <img
+          <AnimatedImage
             className="intro-image"
             alt="Tracy Spooner"
             src="/assets/images/tracy-spooner.png"
+            width={500}
+            height={500}
           />
           <div className="intro-text">
             <b className="intro-name">Tracy Spooner</b>
@@ -61,15 +66,17 @@ const OurTeam = () => {
           </div>
         </div>
         <div className="intro-card">
-          <img
+          <AnimatedImage
             className="intro-image"
             alt="Taylor Spooner"
-            src="/assets/images/taylor-spooner.jpg"
+            src="/assets/images/taylor-spooner.png"
+            width={500}
+            height={500}
           />
           <div className="intro-text">
             <b className="intro-title">Taylor Spooner</b>
             <div className="intro-about">
-              <p >
+              <p>
                 Taylor Spooner has achieved a lot in her first six years in the
                 mortgage industry. She takes pride in being very detail-oriented
                 and providing clients with honest, ethical advice. Taylor

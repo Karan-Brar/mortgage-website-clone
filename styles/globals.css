@@ -49,7 +49,7 @@ body {
 
   .mark-text
   {
-    @apply place-self-center lg:text-2xl text-xl ml-4 
+    @apply place-self-center sm:text-2xl text-xl ml-4 
   }
 
   .partner-logo
@@ -86,7 +86,7 @@ body {
 	}
 
   .nav_link {
-		@apply sm:text-lg transition-colors duration-500 ease-in-out hover:text-blue-200 pr-2;
+		@apply sm:text-lg transition-all duration-1000 ease-in-out hover:text-blue-200  pr-2;
 	}
 
   .option-button{
@@ -105,7 +105,7 @@ body {
 
   .option-card
   {
-    @apply sm:w-3/4 mx-auto pt-32 min-h-screen
+    @apply sm:w-3/4 mx-auto pt-12 sm:pt-24 min-h-screen
   }
 
   .heading-question

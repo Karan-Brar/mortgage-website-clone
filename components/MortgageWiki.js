@@ -40,13 +40,14 @@ const MortgageWiki = () => {
         We've got Answers
       </h1>
       <div className="w-4/5 mx-auto rounded-md lg:w-2/5 flex flex-col">
-        <div className="bg-slate-100 ">
+        <div className="bg-slate-100 rounded-md duration-1000 transition-all">
           <Image
             src={`/assets/images/${images[currentTextIndex]}`}
             alt="Buying a home"
             width={700}
             height={700}
             quality={75}
+            className="w-full"
           />
           <div
             className={`flex flex-col items-center ease-in duration-300 ${
