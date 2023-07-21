@@ -138,12 +138,12 @@ const HeroSection = () => {
         </div>
 
         <div className="w-4/5 mx-auto mb-12">
-          <h2 className="font-bold sm:text-3xl text-xl">
+          {/* <h2 className="font-bold sm:text-3xl text-xl">
             <span className="underline underline-offset-8 decoration-blue-200">
               Discover a mortgage
             </span>{" "}
             as unique as you are.
-          </h2>
+          </h2> */}
           <h2 className="font-bold sm:text-3xl text-xl mt-5">
             <span className="underline underline-offset-8 decoration-blue-200">
               Click Below
@@ -167,7 +167,6 @@ const HeroSection = () => {
 
         <div className="sm:w-4/5 w-fit mx-auto flex flex-row">
           <h3 className="text-xl">Powered By</h3>
-          <Link href="https://www.spoonergroup.ca/">
             <Image
               src="/assets/images/spooner-group-logo.png"
               alt="Spooner Group Logo"
@@ -175,7 +174,6 @@ const HeroSection = () => {
               height={150}
               className="relative -top-5"
             />
-          </Link>
         </div>
       </div>
       <div className="lg:w-1/2 w-full bg-blue-100 sm:mt-10 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden">
