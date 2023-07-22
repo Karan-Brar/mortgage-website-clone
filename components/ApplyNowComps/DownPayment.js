@@ -39,7 +39,7 @@ const DownPayment = (props) => {
               $
             </span>
             <InputMask
-              mask="999,999,9999"
+              mask="9999999999"
               maskChar=""
               {...register("custDownPayment")}
               name="custDownPayment"
