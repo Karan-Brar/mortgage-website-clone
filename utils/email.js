@@ -23,9 +23,9 @@ export const sendContactEmail = (inquiryInfo) => {
   } = inquiryInfo;
 
   const msg = {
-    to: "Mortgagefox@outlook.com",
+    to: "thenry.he@gmail.com",
     from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
-    subject: "Enquiry: " + clientEmail,
+    subject: "Enquiry: ",
 
     html: emailTemplate({
       custRequest,
