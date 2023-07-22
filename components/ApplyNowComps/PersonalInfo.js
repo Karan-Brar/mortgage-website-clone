@@ -38,13 +38,11 @@ const PersonalInfo = props => {
   return (
     <div className="option-card">
       <StepNumber number="5" />
-      <h2 className="heading-question">
-        Tell Us a Little About Yourself
-      </h2>
+      <h2 className="heading-question">Tell Us a Little About Yourself</h2>
       <div className="flex flex-col w-full mx-auto sm:w-3/4">
         {/* Why form? I mean semantically it makes sense but the following buttons types arent set so we are actually "submitting" to no where */}
         <form
-          onSubmit={handleSubmit(data => sendContactEmail(data))}
+          onSubmit={handleSubmit((data) => sendContactEmail(data))}
           className="flex flex-col items-center justify-center"
         >
           <div className="options-input-area !mt-9">
@@ -61,7 +59,7 @@ const PersonalInfo = props => {
               name="fullName"
               className="form-input"
             />{" "}
-            <p>{errors.fullName?.message}</p>
+            <p className="error-message">{errors.fullName?.message}</p>
           </div>
           <div className="options-input-area">
             <label
@@ -76,7 +74,9 @@ const PersonalInfo = props => {
                 register={register}
                 className="form-input"
               />{" "}
-              <p>{errors.clientPhoneNumber?.message}</p>
+              <p className="error-message">
+                {errors.clientPhoneNumber?.message}
+              </p>
             </div>
           </div>
           <div className="options-input-area">
@@ -95,7 +95,7 @@ const PersonalInfo = props => {
               autoComplete="email"
               className="form-input"
             />
-            <p>{errors.clientEmail?.message}</p>
+            <p className="error-message">{errors.clientEmail?.message}</p>
           </div>
           <button className="enabled-next-button">Submit</button>
         </form>

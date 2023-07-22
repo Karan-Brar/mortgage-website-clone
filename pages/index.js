@@ -8,7 +8,7 @@ import OurTeam from "@/components/OurTeam";
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-full">
       <HeroSection />
       <LendingPartners />
       <Testimonials />

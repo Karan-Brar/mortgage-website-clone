@@ -12,7 +12,7 @@ export default function NavigationBar() {
     // Desktop Nav
     <div className="sticky top-0 z-10">
       <nav className="flex justify-between w-full p-3 flex-between sm:px-12 sm:py-5 font-franklin bg-slate-50 sticky top-0 z-10 drop-shadow-lg">
-        <Link href="/" className="flex gap-2 flex-center">
+        <Link href="/" className="flex gap-2 flex-center sm:pr-0 pr-4">
           <Image
             src="/assets/images/mortgage-fox-text-4.png"
             alt="Main Logo"

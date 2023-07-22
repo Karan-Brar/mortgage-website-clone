@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         franklin: ["Libre Franklin", "sans-serif"],
       },
+      screens: {
+        'xs': '345px',
+      },
       colors: {
         blue: {
           100: "#99CCFF",

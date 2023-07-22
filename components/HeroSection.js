@@ -34,16 +34,6 @@ const HeroSection = () => {
           <h1 className="font-bold sm:text-5xl text-3xl">
             Saving You Money at Every Step.
           </h1>
-          {/* <div className="flex flex-row">
-            <h3 className="text-xl">Powered By</h3>
-            <Image
-              src="/assets/images/spooner-group-logo.png"
-              alt="Spooner Group Logo"
-              width={150}
-              height={150}
-              className="relative -top-5"
-            />
-          </div> */}
         </div>
 
         <div className="flex-col w-5/6 mx-auto my-20">
@@ -153,11 +143,11 @@ const HeroSection = () => {
         </div>
 
         <div className="w-4/5 mx-auto">
-          <div className="flex justify-center mx-auto w-fit sm:mx-0 mb-16 hover:cursor-pointer">
-            <div className="text-2xl font-bold text-slate-100 place-self-center">
+          <div className="flex justify-center mx-auto w-full sm:mx-0 mb-16 hover:cursor-pointer">
+            <div className="xs:text-2xl text-md font-bold text-slate-100 place-self-center w-full">
               <Link
                 href="/ApplyNow"
-                className="px-10 py-6 bg-blue-200 rounded-lg hover:drop-shadow-[2px_2px_2px_rgba(0,127,255,0.75)]"
+                className="xs:px-10 xs:py-6 py-4 px-8 bg-blue-200 rounded-lg hover:drop-shadow-[2px_2px_2px_rgba(0,127,255,0.75)] w-full"
               >
                 Estimate My Rate
               </Link>

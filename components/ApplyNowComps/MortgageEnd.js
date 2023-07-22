@@ -30,7 +30,7 @@ const MortgageEnd = props => {
         When Does Your Current Mortgage Term End?
       </h2>
       <form
-        onSubmit={handleSubmit(data => setDataStuff(data))}
+        onSubmit={handleSubmit((data) => setDataStuff(data))}
         className="button-list"
       >
         <div className="flex flex-col">
@@ -44,13 +44,10 @@ const MortgageEnd = props => {
             placeholder="MM/YYYY"
             onChange={handleInputChange}
           />
-          <p>{errors.mortgageEnd?.message}</p>
+          <p className="error-message">{errors.mortgageEnd?.message}</p>
         </div>
 
-        <button
-          onClick={() => setDataStuff("N/A")}
-          className="choice-button"
-        >
+        <button onClick={() => setDataStuff("N/A")} className="choice-button">
           Not Sure
         </button>
         <button type="submit" className="enabled-next-button">

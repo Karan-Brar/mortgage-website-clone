@@ -39,18 +39,18 @@ const DownPayment = (props) => {
               $
             </span>
             <InputMask
-              mask="999,999,9999"
+              mask="9999999999"
               maskChar=""
               {...register("custDownPayment")}
               name="custDownPayment"
               id="custDownPayment"
               className="options-input"
-              placeholder="e.g. 200,000"
+              placeholder="e.g. 20500"
               onChange={handleInputChange}
             />
           </div>
 
-          <p>{errors.custDownPayment?.message}</p>
+          <p className="error-message">{errors.custDownPayment?.message}</p>
         </div>
 
         <button type="submit" className="enabled-next-button">

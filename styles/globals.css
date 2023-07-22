@@ -177,4 +177,14 @@ body {
   {
     @apply xl:text-[0.77em] lg:text-[0.60em] text-sm text-left
   }
+
+  .error-message
+  {
+    @apply text-red-600 pt-2 font-semibold
+  }
+
+  .email-response
+  {
+    @apply mt-10 font-bold text-center px-3 py-3 sm:w-3/5 w-full mx-auto rounded-lg text-xl
+  }
 }

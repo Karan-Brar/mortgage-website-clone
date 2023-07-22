@@ -26,8 +26,18 @@ const ContactForm = () => {
 
     if (response.status == "200") {
       setContactEmailStatus("Email sent");
+      let emailResp = document.getElementById("email-response");
+      emailResp.style.color = "rgb(34 197 94)";
+      setTimeout(() => {
+        setContactEmailStatus("");
+      }, 5000);
     } else {
       setContactEmailStatus("An error occured, please try again!");
+      let emailResp = document.getElementById("email-response");
+      emailResp.style.color = "rgb(220 38 38)";
+      setTimeout(() => {
+        setContactEmailStatus("");
+      }, 5000);
     }
   }
   return (
@@ -58,7 +68,7 @@ const ContactForm = () => {
               className="form-input"
             />
 
-            <p>{errors.fullName?.message}</p>
+            <p className="error-message">{errors.fullName?.message}</p>
           </div>
           <div className="mb-2 sm:col-span-2">
             <label
@@ -75,7 +85,7 @@ const ContactForm = () => {
               />
             </div>
 
-            <p>{errors.clientPhoneNumber?.message}</p>
+            <p className="error-message">{errors.clientPhoneNumber?.message}</p>
           </div>
           <div className="mb-2 sm:col-span-2">
             <label
@@ -94,7 +104,7 @@ const ContactForm = () => {
               className="form-input"
             />
 
-            <p>{errors.clientEmail?.message}</p>
+            <p className="error-message">{errors.clientEmail?.message}</p>
           </div>
 
           <div className="mb-2 sm:col-span-2">
@@ -114,7 +124,7 @@ const ContactForm = () => {
                 defaultValue={""}
               />
             </div>
-            <p>{errors.contactMessage?.message}</p>
+            <p className="error-message">{errors.contactMessage?.message}</p>
           </div>
         </div>
         <div className="mt-10">
@@ -125,7 +135,9 @@ const ContactForm = () => {
             Message Us
           </button>
         </div>
-        <div>{contactEmailStatus}</div>
+        <div className="email-response" id="email-response">
+          {contactEmailStatus}
+        </div>
       </form>
     </div>
   );
