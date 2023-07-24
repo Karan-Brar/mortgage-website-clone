@@ -18,13 +18,13 @@ export default function App({ Component, pageProps }) {
         <link
           rel="icon"
           type="image/x-icon"
-          href="/assets/images/mortgage-fox-logo-resized.png"
+          href="/assets/images/save-on-rates-logo-img.png"
         />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta property="og:url" content="https://www.mortgagefox.ca/"></meta>
         <meta
           property="og:image"
-          content="/assets/images/mortgage-fox-thumbnail.png"
+          content="/assets/images/save-on-rates-thumbnail.png"
         ></meta>
       </Head>
       <NavigationBar />

@@ -11,22 +11,25 @@ export default function NavigationBar() {
   return (
     // Desktop Nav
     <div className="sticky top-0 z-10">
-      <nav className="flex justify-between w-full p-3 flex-between sm:px-12 sm:py-5 font-franklin bg-slate-50 sticky top-0 z-10 drop-shadow-lg">
-        <Link href="/" className="flex gap-2 flex-center sm:pr-0 pr-4">
+      <nav className="flex justify-between w-full p-3 flex-between sm:px-12 sm:py-2 font-franklin bg-slate-50 sticky top-0 z-10 drop-shadow-lg">
+        <Link href="/" className="flex flex-row sm:gap-5 gap-3 justify-center align-middle items-center sm:pr-0 pr-4">
           <Image
-            src="/assets/images/mortgage-fox-text-4.png"
+            src="/assets/images/save-on-rates-logo-img.png"
             alt="Main Logo"
-            width={250}
-            height={250}
+            width={70}
+            height={70}
             className="hidden sm:block"
           />
           <Image
-            src="/assets/images/mortgage-fox-text-4.png"
+            src="/assets/images/save-on-rates-logo-img.png"
             alt="Main Logo"
-            width={200}
-            height={200}
+            width={50}
+            height={50}
             className="sm:hidden"
           />
+          <span className="sm:text-4xl text-md font-bold font-lato">
+            Save On Rates
+          </span>
         </Link>
 
         <div className="flex flex-row">
@@ -81,9 +84,7 @@ export default function NavigationBar() {
               </svg>
 
               {phoneDropdown && (
-                <PhoneDropDown
-                  onClick={() => setToggleDropdown(false)}
-                />
+                <PhoneDropDown onClick={() => setToggleDropdown(false)} />
               )}
             </div>
           </div>

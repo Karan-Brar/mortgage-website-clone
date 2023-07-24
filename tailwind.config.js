@@ -9,9 +9,10 @@ module.exports = {
     extend: {
       fontFamily: {
         franklin: ["Libre Franklin", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
       screens: {
-        'xs': '345px',
+        xs: "345px",
       },
       colors: {
         blue: {
