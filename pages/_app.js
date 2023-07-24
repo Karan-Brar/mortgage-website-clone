@@ -7,13 +7,13 @@ export default function App({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title>Mortgage Fox</title>
+        <title>Save On Rates</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="robots" content="all" />
         <meta
           name="description"
-          content="Mortgage Fox is a mortgage company based in Winnipeg, specializing in providing tailored mortgage solutions to meet the unique needs of every client. With a team of experienced professionals, we are committed to helping individuals and families achieve their homeownership dreams. "
+          content="Save On Rates is a mortgage brokering company based in Winnipeg, specializing in providing tailored mortgage solutions to meet the unique needs of every client. With a team of experienced professionals, we are committed to helping individuals and families achieve their homeownership dreams. "
         />
         <link
           rel="icon"
