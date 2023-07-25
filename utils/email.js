@@ -23,7 +23,7 @@ export const sendContactEmail = (inquiryInfo) => {
   } = inquiryInfo;
 
   const msg = {
-    to: "thenry.he@gmail.com",
+    to: "armaan.mortgage@gmail.com",
     from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
     subject: "Enquiry: ",
 
