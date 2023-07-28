@@ -36,7 +36,7 @@ const MortgageWiki = () => {
       className="font-franklin bg-blue-100 flex flex-col pt-10 pb-3"
       id="q-a"
     >
-      <h1 className="py-8 mx-auto font-bold w-fit heading">
+      <h1 className="py-8 mx-auto font-bold w-fit heading text-white">
         We've got Answers
       </h1>
       <div className="w-4/5 mx-auto rounded-md lg:w-2/5 flex flex-col">
@@ -64,7 +64,7 @@ const MortgageWiki = () => {
         </div>
 
         <div
-          className="flex justify-center mt-6 cursor-pointer animate-bounce"
+          className="flex justify-center mt-6 cursor-pointer animate-bounce text-white"
           onClick={() => {
             setFadeIn(false);
             handleClick();

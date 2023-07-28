@@ -28,10 +28,10 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="w-full bg-blue-100 lg:flex font-franklin lg:min-h-screen">
+    <div className="w-full bg-blue-100 lg:flex font-franklin lg:min-h-screen text-white">
       <div className="lg:w-1/2 flex-col">
         <div className="w-4/5 mx-auto pt-12">
-          <h1 className="font-bold sm:text-5xl text-3xl">
+          <h1 className="font-bold sm:text-5xl text-3xl ">
             Saving You Money at Every Step.
           </h1>
         </div>
@@ -135,7 +135,7 @@ const HeroSection = () => {
             as unique as you are.
           </h2> */}
           <h2 className="font-bold sm:text-3xl text-xl mt-5">
-            <span className="underline underline-offset-8 decoration-blue-200">
+            <span className="">
               Click Below
             </span>{" "}
             to estimate the best mortgage rate for you.
@@ -156,27 +156,30 @@ const HeroSection = () => {
         </div>
 
         <div className="sm:w-4/5 w-fit mx-auto flex flex-row">
-          <h3 className="text-xl">Powered By</h3>
-            <Image
-              src="/assets/images/spooner-group-logo.png"
-              alt="Spooner Group Logo"
-              width={150}
-              height={150}
-              className="relative -top-5"
-            />
+          <h3 className="text-xl">Powered By The Spooner Group</h3>
+          {/* <Image
+            src="/assets/images/spooner-group-logo.png"
+            alt="Spooner Group Logo"
+            width={150}
+            height={150}
+            className="relative -top-5"
+          /> */}
         </div>
       </div>
-      <div className="lg:w-1/2 w-full bg-blue-10 mt-5 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden" id="hero-section">
+      <div
+        className="lg:w-1/2 w-full bg-blue-10 mt-5 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden"
+        id="hero-section"
+      >
         {/* <div
           ref={topDivRef}
           className="w-20 h-20 rounded-full absolute lg:top-1 top-7 -left-9 bg-blue-200"
         ></div> */}
         <AnimatedImage
-          src="/assets/images/happy-future-2.png"
+          src="/assets/images/big-house.png"
           alt="Happy Future"
           priority
-          width={2000}
-          height={2000}
+          width={1000}
+          height={1000}
         />
         {/* <div
           ref={bottomDivRef}

@@ -29,7 +29,7 @@ const Testimonials = () => {
       className="bg-blue-100 font-franklin flex flex-col justify-center duration-1000 transition-all"
       id="customer-reviews"
     >
-      <h1 className="py-10 mx-auto font-bold w-fit heading">
+      <h1 className="py-10 mx-auto font-bold w-fit heading text-white">
         Customer Reviews
       </h1>
       <div className="w-4/5 mx-auto rounded-md lg:w-2/5 bg-slate-50">
@@ -48,7 +48,7 @@ const Testimonials = () => {
       </div>
 
       <div
-        className="flex justify-center mt-10 cursor-pointer animate-bounce animate-soundcoun "
+        className="flex justify-center mt-10 cursor-pointer animate-bounce text-white"
         onClick={() => {
           setFadeIn(false);
           handleClick();

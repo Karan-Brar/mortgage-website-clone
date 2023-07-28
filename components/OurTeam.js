@@ -31,11 +31,11 @@ const OurTeam = () => {
                 real estate market. He believes in transparency and helping
                 clients make one of their biggest decisions in life.
               </p>
-              <p>
+              {/* <p>
                 In his free time, Armaan likes to watch Sci-fi movies and
                 documentaries. And also, plays professional Cricket in a local
                 club!
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -57,12 +57,12 @@ const OurTeam = () => {
                 brokerage and branched off on her own in 2016 to open The
                 Spooner Group.
               </p>
-              <p>
+              {/* <p>
                 In Tracy’s free time, she enjoys spending time with her husband,
                 3 daughters, 1 very spoiled grandson and a few pets. Tracy has
                 recently rehabilitated 2 off-the-track racehorses and trains
                 with her jumping coach several times a week.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -85,11 +85,11 @@ const OurTeam = () => {
                 is of the utmost importance when planning to supply the best
                 advice for today, in five years, and further into the future.
               </p>
-              <p>
+              {/* <p>
                 Taylor is a proud momma to her son Kyngston, an avid dog lover
                 with three dogs of her own, and everyone who knows her will
                 agree she should have an organization blog!
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
