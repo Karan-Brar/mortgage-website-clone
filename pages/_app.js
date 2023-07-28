@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
         <link
           rel="icon"
           type="image/x-icon"
-          href="/assets/images/save-on-rates-favicon-white-resize.png"
+          href="/assets/images/save-on-rates-favicon-white-resize-2.png"
         />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta property="og:url" content="https://saveonrates.ca/"></meta>
