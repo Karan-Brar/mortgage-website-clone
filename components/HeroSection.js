@@ -135,10 +135,8 @@ const HeroSection = () => {
             as unique as you are.
           </h2> */}
           <h2 className="font-bold sm:text-3xl text-xl mt-5">
-            <span className="">
-              Click Below
-            </span>{" "}
-            to estimate the best mortgage rate for you.
+            <span className="">Click Below</span> to estimate the best mortgage
+            rate for you.
           </h2>
         </div>
 
@@ -167,7 +165,7 @@ const HeroSection = () => {
         </div>
       </div>
       <div
-        className="lg:w-1/2 w-full bg-blue-10 mt-5 sm:mt-0 sm:py-0 py-3 relative flex justify-center items-center overflow-hidden"
+        className="lg:w-1/2 w-full bg-blue-10 mt-5 sm:mt-0 sm:py-0 relative flex justify-center items-center overflow-hidden lg:bg-[url(/assets/images/big-house-3.jpg)] lg:bg-cover"
         id="hero-section"
       >
         {/* <div
@@ -175,11 +173,12 @@ const HeroSection = () => {
           className="w-20 h-20 rounded-full absolute lg:top-1 top-7 -left-9 bg-blue-200"
         ></div> */}
         <AnimatedImage
-          src="/assets/images/big-house.png"
+          src="/assets/images/big-house-3.jpg"
           alt="Happy Future"
           priority
-          width={1000}
-          height={1000}
+          width={770}
+          height={770}
+          className="lg:hidden pt-5"
         />
         {/* <div
           ref={bottomDivRef}
