@@ -15,7 +15,7 @@ const Footer = () => {
             className="hidden sm:block"
           />
           <Image
-            src="/assets/images/mortgage-fox-text-4.png"
+            src="/assets/images/logo-main-2.svg"
             alt="Main Logo"
             width={130}
             height={130}
