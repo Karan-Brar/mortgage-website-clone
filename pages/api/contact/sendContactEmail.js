@@ -8,7 +8,7 @@ import {
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
-      if (req.body.mortgageEnd) {
+      if (req.body.mortgageEnd && req.body.mortgageEnd != "N/A") {
         await mortgageTermValidation.validate(req.body);
       }
       if (req.body.custDownPayment) {
