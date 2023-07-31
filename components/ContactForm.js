@@ -15,8 +15,8 @@ const ContactForm = () => {
     resolver: yupResolver(contactFormValidation),
   });
 
-  async function sendContactEmail(data) {
-    console.log(data);
+  async function sendContactEmail(data, emailSource) {
+    data.emailSource = emailSource
     let response = await fetch("/api/contact/sendContactEmail", {
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const ContactForm = () => {
         </h1>
       </div>
       <form
-        onSubmit={handleSubmit((data) => sendContactEmail(data))}
+        onSubmit={handleSubmit((data) => sendContactEmail(data, "Contact Form"))}
         className="w-5/6 mx-auto mt-5 lg:w-2/5 sm:mt-12"
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">

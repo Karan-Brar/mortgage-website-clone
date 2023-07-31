@@ -13,8 +13,8 @@ export const contactFormValidation = yup.object({
 		.required("Phone number is required"),
 	contactMessage: yup
 		.string()
-
-		.min(50, "Please provide more information (50 character minimum)"),
+		.required("Message cannot be empty"),
+		// .min(50, "Please provide more information (50 character minimum)"),
 });
 export const downPaymentValidation = yup.object({
 	custDownPayment: yup.string().required("Incorrect amount entered"),

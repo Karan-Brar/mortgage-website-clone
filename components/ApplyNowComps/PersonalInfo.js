@@ -30,11 +30,15 @@ const PersonalInfo = props => {
     };
     setData(personalInfo);
   };
-  function sendContactEmail(formData) {
+
+  function sendContactEmail(formData, emailSource) {
+    console.log("Submit was hit")
+    formData.emailSource = emailSource
     let temp = data;
     temp += formData;
     props.submitForm({ data: formData, componentType });
   }
+  
   return (
     <div className="option-card">
       <StepNumber number="5" />
@@ -42,7 +46,7 @@ const PersonalInfo = props => {
       <div className="flex flex-col w-full mx-auto sm:w-3/4">
         {/* Why form? I mean semantically it makes sense but the following buttons types arent set so we are actually "submitting" to no where */}
         <form
-          onSubmit={handleSubmit((data) => sendContactEmail(data))}
+          onSubmit={handleSubmit((data) => sendContactEmail(data, "Apply Now"))}
           className="flex flex-col items-center justify-center"
         >
           <div className="options-input-area !mt-9">
@@ -97,7 +101,7 @@ const PersonalInfo = props => {
             />
             <p className="error-message">{errors.clientEmail?.message}</p>
           </div>
-          <button className="enabled-next-button">Submit</button>
+          <button className="enabled-next-button" type="submit">Submit</button>
         </form>
 
         <button className="back-button" onClick={props.setPrev}>
