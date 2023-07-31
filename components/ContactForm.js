@@ -16,6 +16,7 @@ const ContactForm = () => {
   });
 
   async function sendContactEmail(data) {
+    console.log(data);
     let response = await fetch("/api/contact/sendContactEmail", {
       headers: {
         "Content-Type": "application/json",
@@ -32,6 +33,7 @@ const ContactForm = () => {
         setContactEmailStatus("");
       }, 5000);
     } else {
+      console.log(response);
       setContactEmailStatus("An error occured, please try again!");
       let emailResp = document.getElementById("email-response");
       emailResp.style.color = "rgb(220 38 38)";
@@ -43,7 +45,7 @@ const ContactForm = () => {
   return (
     <div className="pt-10">
       <div className="flex items-center justify-center py-8">
-        <h1 className="mb-2 mt-12 font-bold tracking-tight heading">
+        <h1 className="mt-12 mb-2 font-bold tracking-tight heading">
           Shoot us a message
         </h1>
       </div>
