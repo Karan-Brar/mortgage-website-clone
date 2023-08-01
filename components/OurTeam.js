@@ -16,7 +16,7 @@ const OurTeam = () => {
           <AnimatedImage
             className="w-4/6 xl:w-2/5 rounded-2xl"
             alt="Armaan Brar"
-            src="/assets/images/armaan-brar.jpg"
+            src="/assets/images/armaan-brar-2.jpg"
             width={500}
             height={500}
           />

@@ -35,7 +35,7 @@ const ContactSection = () => {
             </Popover>
 
             <Link
-              href="https://instagram.com/mortgagesbyarmaan?igshid=MTIzZWMxMTBkOA=="
+              href="https://www.instagram.com/saveonrates/?hl=en"
               className="m-3"
             >
               <Image

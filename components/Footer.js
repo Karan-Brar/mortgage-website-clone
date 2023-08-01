@@ -34,7 +34,7 @@ const Footer = () => {
 
         <div className="flex flex-row mt-4">
           <Link
-            href="https://instagram.com/mortgagesbyarmaan?igshid=MTIzZWMxMTBkOA=="
+            href="https://www.instagram.com/saveonrates/?hl=en"
             className="mr-4"
           >
             <Image
