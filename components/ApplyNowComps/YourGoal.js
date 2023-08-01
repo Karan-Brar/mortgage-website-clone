@@ -4,8 +4,8 @@ import StepNumber from "./StepNumber";
 const buttonOptions = [
   { submitInfo: "Better Rate", text: "Find a Better Rate" },
   { submitInfo: "Lower Mothly Payment", text: "Lower Your Monthly Payment" },
-  { submitInfo: "Pay Mortgage Faster", text: "Pay Your mortgage Faster" },
-  { submitInfo: "Takeout Cash", text: "Need to takeout cash from mortgage" },
+  { submitInfo: "Pay Mortgage Faster", text: "Pay Off Your Mortgage Faster" },
+  { submitInfo: "Takeout Cash", text: "Need Access To Cash" },
 ]
 
 const YourGoal = (props) => {
