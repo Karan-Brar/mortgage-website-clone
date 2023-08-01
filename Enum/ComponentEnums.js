@@ -3,5 +3,6 @@ export const ComponentTypes = {
     PURCHASE: 'purchasePlan',
     DOWN: 'downPayment',
     GOAL: 'yourGoal',
+    SCORE: 'creditScore',
     END: 'mortgageEnd',
 };

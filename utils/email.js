@@ -22,6 +22,7 @@ export const sendContactEmail = (inquiryInfo) => {
     clientPhoneNumber,
     contactMessage,
     data,
+    custCreditScore,
     custGoal,
     custDownPayment,
     buyingPlan,
@@ -32,7 +33,7 @@ export const sendContactEmail = (inquiryInfo) => {
   if(emailSource === "Contact Form")
   {
     const msg = {
-      to: "brarkaran938@gmail.com",
+      to: "info@saveonrates.ca",
       from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
       subject: "From Website - I want to get in touch",
 
@@ -40,7 +41,7 @@ export const sendContactEmail = (inquiryInfo) => {
         fullName,
         clientEmail,
         clientPhoneNumber,
-        contactMessage
+        contactMessage,
       }),
     };
 
@@ -56,7 +57,7 @@ export const sendContactEmail = (inquiryInfo) => {
   else
   {
       const msg = {
-        to: "brarkaran938@gmail.com",
+        to: "info@saveonrates.ca",
         from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
         subject: "From Website - Estimate My Rate",
 
@@ -69,6 +70,7 @@ export const sendContactEmail = (inquiryInfo) => {
           custDownPayment,
           buyingPlan,
           mortgageEnd,
+          custCreditScore,
           fullName,
         }),
       };

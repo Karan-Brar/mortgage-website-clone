@@ -70,7 +70,7 @@ const OurTeam = () => {
           <AnimatedImage
             className="intro-image"
             alt="Taylor Spooner"
-            src="/assets/images/taylor-spooner.png"
+            src="/assets/images/taylor-spooner-2.jpg"
             width={500}
             height={500}
           />

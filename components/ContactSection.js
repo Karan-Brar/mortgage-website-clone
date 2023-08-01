@@ -73,7 +73,7 @@ const ContactSection = () => {
                 </button>
               </PopoverHandler>
               <PopoverContent className="p-5 bg-slate-50">
-                armaan.mortgage@gmail.com
+                info@saveonrates.ca
               </PopoverContent>
             </Popover>
           </div>

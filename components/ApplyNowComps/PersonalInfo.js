@@ -30,6 +30,7 @@ const PersonalInfo = (props) => {
     };
     setData(personalInfo);
   };
+  
   function sendContactEmail(formData) {
     let temp = data;
     temp += formData;

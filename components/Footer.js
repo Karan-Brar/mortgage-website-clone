@@ -26,7 +26,7 @@ const Footer = () => {
           (431) 997-1277
         </div>
         <div className="font-franklin font-semibold text-sm sm:text-lg">
-          armaan.mortgage@gmail.com
+          info@saveonrates.ca
         </div>
         <div className="font-franklin font-semibold text-sm sm:text-lg">
           278 Marion St, Winnipeg, MB R2H 0T7

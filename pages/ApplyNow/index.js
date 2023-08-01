@@ -14,6 +14,7 @@ const index = () => {
   const [custRequest, setCustRequest] = useState("");
   const [buyingPlan, setBuyingPlan] = useState("");
   const [custDownPayment, setCustDownPayment] = useState("");
+  const [custCreditScore, setCustCreditScore] = useState("");
   const [custGoal, setCustGoal] = useState("N/A");
   const [mortgageEnd, setMortgageEnd] = useState("N/A");
 
@@ -30,6 +31,8 @@ const index = () => {
       setCustGoal(data);
     } else if (componentType === ComponentTypes.END) {
       setMortgageEnd(data);
+    } else if (componentType === ComponentTypes.SCORE) {
+      setCustCreditScore(data);
     }
   };
 
@@ -55,6 +58,7 @@ const index = () => {
       clientEmail,
       clientPhoneNumber,
       custGoal,
+      custCreditScore,
       custDownPayment,
       buyingPlan,
       mortgageEnd,
