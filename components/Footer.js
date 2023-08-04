@@ -60,6 +60,15 @@ const Footer = () => {
             />
           </Link>
         </div>
+
+        <div className="mt-5">
+          <Link
+            href="https://www.privacypolicies.com/live/84282a09-67ce-4f85-89a7-3ec3e83ec1d6"
+            className="underline underline-offset-3"
+          >
+            Our Privacy Policy
+          </Link>
+        </div>
       </div>
 
       <Link
