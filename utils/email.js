@@ -57,7 +57,7 @@ export const sendContactEmail = (inquiryInfo) => {
   else
   {
       const msg = {
-        to: "info@saveonrates.ca",
+        to: "armaanbrar@spoonergroup.ca",
         from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
         subject: "From Website - Estimate My Rate",
 
