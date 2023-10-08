@@ -33,7 +33,7 @@ export const sendContactEmail = (inquiryInfo) => {
   if(emailSource === "Contact Form")
   {
     const msg = {
-      to: "info@saveonrates.ca",
+      to: "armaanbrar@spoonergroup.ca",
       from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
       subject: "From Website - I want to get in touch",
 
