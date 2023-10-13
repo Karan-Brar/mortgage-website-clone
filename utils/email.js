@@ -1,8 +1,16 @@
-const sgMail = require("@sendgrid/mail");
+const SibApiV3Sdk = require("sib-api-v3-sdk");
+const defaultClient = SibApiV3Sdk.ApiClient.instance;
 import Handlebars from "handlebars";
 import fs from "fs";
 
 export const sendContactEmail = (inquiryInfo) => {
+  // Configure API key authorization: api-key
+  var apiKey = defaultClient.authentications["api-key"];
+  apiKey.apiKey = process.env.MAIL_API_KEY;
+
+  const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+
+
   //somehow load below template
   const emailTemplateApplyNow = Handlebars.compile(
     fs.readFileSync(process.cwd() + "/emails/applynow-email.html", "utf-8")
@@ -12,7 +20,6 @@ export const sendContactEmail = (inquiryInfo) => {
     fs.readFileSync(process.cwd() + "/emails/contact-email.html", "utf-8")
   );
 
-  sgMail.setApiKey(process.env.SEND_GRID_KEY);
 
   const emailSource = inquiryInfo.emailSource;
 
@@ -30,58 +37,78 @@ export const sendContactEmail = (inquiryInfo) => {
     fullName,
   } = inquiryInfo;
 
-  if(emailSource === "Contact Form")
-  {
-    const msg = {
-      to: "armaanbrar@spoonergroup.ca",
-      from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
+  if (emailSource === "Contact Form") {
+    var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+    sendSmtpEmail = {
+      to: [
+        {
+          email: "armaanbrar@spoonergroup.ca",
+          name: "Armaan Brar",
+        },
+      ],
+      sender: {
+        email: process.env.SENDER_EMAIL,
+        name: "Save On Rates",
+      },
       subject: "From Website - I want to get in touch",
-
-      html: emailTemplateContactForm({
+      htmlContent: emailTemplateContactForm({
         fullName,
         clientEmail,
         clientPhoneNumber,
         contactMessage,
       }),
+      headers: {
+        "X-Mailin-custom": `api-key:${process.env.MAIL_API_KEY}|content-type:application/json|accept:application/json`,
+      },
     };
 
-      sgMail
-        .send(msg)
-        .then(() => {
-          console.log("Email sent!");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-  }
-  else
-  {
-      const msg = {
-        to: "armaanbrar@spoonergroup.ca",
-        from: process.env.SEND_GRID_EMAIL, // Change to your verified sender
-        subject: "From Website - Estimate My Rate",
+    apiInstance
+      .sendTransacEmail(sendSmtpEmail)
+      .then(() => {
+        console.log("Email sent!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+    sendSmtpEmail = {
+      to: [
+        {
+          email: "armaanbrar@spoonergroup.ca",
+          name: "Armaan Brar",
+        },
+      ],
+      sender: {
+        email: process.env.SENDER_EMAIL,
+        name: "Save On Rates",
+      }, // Change to your verified sender
+      subject: "From Website - Estimate My Rate",
 
-        html: emailTemplateApplyNow({
-          custRequest,
-          clientEmail,
-          clientPhoneNumber,
-          data,
-          custGoal,
-          custDownPayment,
-          buyingPlan,
-          mortgageEnd,
-          custCreditScore,
-          fullName,
-        }),
-      };
+      htmlContent: emailTemplateApplyNow({
+        custRequest,
+        clientEmail,
+        clientPhoneNumber,
+        data,
+        custGoal,
+        custDownPayment,
+        buyingPlan,
+        mortgageEnd,
+        custCreditScore,
+        fullName,
+      }),
+      headers: {
+        "X-Mailin-custom": `api-key:${process.env.MAIL_API_KEY}|content-type:application/json|accept:application/json`,
+      },
+    };
 
-        sgMail
-          .send(msg)
-          .then(() => {
-            console.log("Email sent!");
-          })
-          .catch((error) => {
-            console.error(error);
-          });
+    apiInstance
+      .sendTransacEmail(sendSmtpEmail)
+      .then(() => {
+        console.log("Email sent!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 };
