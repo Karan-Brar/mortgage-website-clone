@@ -42,7 +42,7 @@ export const sendContactEmail = (inquiryInfo) => {
     sendSmtpEmail = {
       to: [
         {
-          email: "armaanbrar@spoonergroup.ca",
+          email: process.env.TO_EMAIL,
           name: "Armaan Brar",
         },
       ],
@@ -75,7 +75,7 @@ export const sendContactEmail = (inquiryInfo) => {
     sendSmtpEmail = {
       to: [
         {
-          email: "armaanbrar@spoonergroup.ca",
+          email: process.env.TO_EMAIL,
           name: "Armaan Brar",
         },
       ],
