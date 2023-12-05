@@ -69,6 +69,9 @@ export const sendContactEmail = (inquiryInfo) => {
       })
       .catch((error) => {
         console.error(error);
+        console.log(process.env.TO_EMAIL);
+        console.log(process.env.MAIL_API_KEY);
+        console.log(process.env.SENDER_EMAIL)
       });
   } else {
     var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
