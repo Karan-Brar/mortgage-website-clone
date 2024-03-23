@@ -4,12 +4,11 @@ import Handlebars from "handlebars";
 import fs from "fs";
 
 export const sendContactEmail = (inquiryInfo) => {
-  // Configure API key authorization: api-key
-  var apiKey = defaultClient.authentications["api-key"];
-  apiKey.apiKey = process.env.MAIL_API_KEY;
 
-  const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-
+  const mailjet = require("node-mailjet").apiConnect(
+    process.env.MAIL_API_KEY,
+    process.env.SECRET_KEY
+  );
 
   //somehow load below template
   const emailTemplateApplyNow = Handlebars.compile(
@@ -19,7 +18,6 @@ export const sendContactEmail = (inquiryInfo) => {
   const emailTemplateContactForm = Handlebars.compile(
     fs.readFileSync(process.cwd() + "/emails/contact-email.html", "utf-8")
   );
-
 
   const emailSource = inquiryInfo.emailSource;
 
@@ -38,80 +36,73 @@ export const sendContactEmail = (inquiryInfo) => {
   } = inquiryInfo;
 
   if (emailSource === "Contact Form") {
-    var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-    sendSmtpEmail = {
-      to: [
+    const request = mailjet.post("send", { version: "v3.1" }).request({
+      Messages: [
         {
-          email: process.env.TO_EMAIL,
-          name: "Armaan Brar",
+          From: {
+            Email: process.env.SENDER_EMAIL,
+            Name: "Save on Rates Website",
+          },
+          To: [
+            {
+              Email: process.env.TO_EMAIL,
+              Name: "Armaan Brar",
+            },
+          ],
+          Subject: "From Website - I want to get in touch",
+          HTMLPart: emailTemplateContactForm({
+            fullName,
+            clientEmail,
+            clientPhoneNumber,
+            contactMessage,
+          }),
         },
       ],
-      sender: {
-        email: process.env.SENDER_EMAIL,
-        name: "Save On Rates",
-      },
-      subject: "From Website - I want to get in touch",
-      htmlContent: emailTemplateContactForm({
-        fullName,
-        clientEmail,
-        clientPhoneNumber,
-        contactMessage,
-      }),
-      headers: {
-        "X-Mailin-custom": `api-key:${process.env.MAIL_API_KEY}|content-type:application/json|accept:application/json`,
-      },
-    };
-
-    apiInstance
-      .sendTransacEmail(sendSmtpEmail)
-      .then(() => {
-        console.log("Email sent!");
+    });
+    request
+      .then((result) => {
+        console.log(result.body);
       })
-      .catch((error) => {
-        console.error(error);
-        console.log(process.env.TO_EMAIL);
-        console.log(process.env.MAIL_API_KEY);
-        console.log(process.env.SENDER_EMAIL)
-      });
-  } else {
-    var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
-    sendSmtpEmail = {
-      to: [
-        {
-          email: process.env.TO_EMAIL,
-          name: "Armaan Brar",
-        },
-      ],
-      sender: {
-        email: process.env.SENDER_EMAIL,
-        name: "Save On Rates",
-      }, // Change to your verified sender
-      subject: "From Website - Estimate My Rate",
-
-      htmlContent: emailTemplateApplyNow({
-        custRequest,
-        clientEmail,
-        clientPhoneNumber,
-        data,
-        custGoal,
-        custDownPayment,
-        buyingPlan,
-        mortgageEnd,
-        custCreditScore,
-        fullName,
-      }),
-      headers: {
-        "X-Mailin-custom": `api-key:${process.env.MAIL_API_KEY}|content-type:application/json|accept:application/json`,
-      },
-    };
-
-    apiInstance
-      .sendTransacEmail(sendSmtpEmail)
-      .then(() => {
-        console.log("Email sent!");
-      })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.log(err.statusCode);
       });
   }
+  else {
+        const request = mailjet.post("send", { version: "v3.1" }).request({
+          Messages: [
+            {
+              From: {
+                Email: process.env.SENDER_EMAIL,
+                Name: "Save on Rates Website",
+              },
+              To: [
+                {
+                  Email: process.env.TO_EMAIL,
+                  Name: "Armaan Brar",
+                },
+              ],
+              Subject: "From Website - I want to get in touch",
+              HTMLPart: emailTemplateApplyNow({
+                custRequest,
+                clientEmail,
+                clientPhoneNumber,
+                data,
+                custGoal,
+                custDownPayment,
+                buyingPlan,
+                mortgageEnd,
+                custCreditScore,
+                fullName,
+              }),
+            },
+          ],
+        });
+        request
+          .then((result) => {
+            console.log(result.body);
+          })
+          .catch((err) => {
+            console.log(err.statusCode);
+          });
+    }
 };
