@@ -1,9 +1,7 @@
-const SibApiV3Sdk = require("sib-api-v3-sdk");
-const defaultClient = SibApiV3Sdk.ApiClient.instance;
 import Handlebars from "handlebars";
 import fs from "fs";
 
-export const sendContactEmail = (inquiryInfo) => {
+export const sendContactEmail = async (inquiryInfo) => {
 
   const mailjet = require("node-mailjet").apiConnect(
     process.env.MAIL_API_KEY,
@@ -50,6 +48,8 @@ export const sendContactEmail = (inquiryInfo) => {
             },
           ],
           Subject: "From Website - I want to get in touch",
+          TextPart:
+            "",
           HTMLPart: emailTemplateContactForm({
             fullName,
             clientEmail,
@@ -81,7 +81,8 @@ export const sendContactEmail = (inquiryInfo) => {
                   Name: "Armaan Brar",
                 },
               ],
-              Subject: "From Website - I want to get in touch",
+              Subject: "From Website - Estimate My Rate",
+              TextPart: "",
               HTMLPart: emailTemplateApplyNow({
                 custRequest,
                 clientEmail,
