@@ -45,8 +45,20 @@ export const sendContactEmail = async (inquiryInfo) => {
         }),
       };
 
-      const sended = await sgMail.send(msg);
-      console.log("sended: ", sended);
+      // const sended = await sgMail.send(msg);
+
+      await new Promise((resolve, reject) => {
+        // send mail
+        sgMail.send(msg, (err, info) => {
+          if (err) {
+            console.error(err);
+            reject(err);
+          } else {
+            console.log(info);
+            resolve(info);
+          }
+        });
+      });
 
       return { success: true };
     } else {
