@@ -3,7 +3,7 @@ import StepNumber from "./StepNumber";
 
 const buttonOptions = [
   { submitInfo: "Better Rate", text: "Find a Better Rate" },
-  { submitInfo: "Lower Mothly Payment", text: "Lower Your Monthly Payment" },
+  { submitInfo: "Lower Monthly Payment", text: "Lower Your Monthly Payment" },
   { submitInfo: "Pay Mortgage Faster", text: "Pay Off Your Mortgage Faster" },
   { submitInfo: "Takeout Cash", text: "Need Access To Cash" },
 ]

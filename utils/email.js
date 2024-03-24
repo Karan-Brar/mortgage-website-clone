@@ -110,13 +110,15 @@
 
 import Handlebars from "handlebars";
 import fs from "fs";
-import { Result } from "postcss";
+const sgMail = require("@sendgrid/mail");
 
 export const sendContactEmail = async (inquiryInfo) => {
-  const mailjet = require("node-mailjet").apiConnect(
-    process.env.MAIL_API_KEY,
-    process.env.SECRET_KEY
-  );
+  // const mailjet = require("node-mailjet").apiConnect(
+  //   process.env.MAIL_API_KEY,
+  //   process.env.SECRET_KEY
+  // );
+
+  sgMail.setApiKey(process.env.MAIL_API_KEY);
 
   // Load email templates
   const emailTemplateApplyNow = Handlebars.compile(
@@ -145,64 +147,114 @@ export const sendContactEmail = async (inquiryInfo) => {
 
   try {
     if (emailSource === "Contact Form") {
-      const result = await mailjet.post("send", { version: "v3.1" }).request({
-        Messages: [
-          {
-            From: {
-              Email: process.env.SENDER_EMAIL,
-              Name: "Save on Rates Website",
-            },
-            To: [
-              {
-                Email: process.env.TO_EMAIL,
-                Name: "Armaan Brar",
-              },
-            ],
-            Subject: "From Website - I want to get in touch",
-            TextPart: "",
-            HTMLPart: emailTemplateContactForm({
-              fullName,
-              clientEmail,
-              clientPhoneNumber,
-              contactMessage,
-            }),
-          },
-        ],
-      });
 
-      console.log(result)
+      const msg = {
+        to: process.env.TO_EMAIL, // Change to your recipient
+        from: process.env.SENDER_EMAIL, // Change to your verified sender
+        subject: "From Website - I want to get in touch",
+        text: "Client Inquiry from the website",
+        html: emailTemplateContactForm({
+          fullName,
+          clientEmail,
+          clientPhoneNumber,
+          contactMessage,
+        }),
+      };
+      sgMail
+        .send(msg)
+        .then(() => {
+          console.log("Email sent");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+      // const result = await mailjet.post("send", { version: "v3.1" }).request({
+      //   Messages: [
+      //     {
+      //       From: {
+      //         Email: process.env.SENDER_EMAIL,
+      //         Name: "Save on Rates Website",
+      //       },
+      //       To: [
+      //         {
+      //           Email: process.env.TO_EMAIL,
+      //           Name: "Armaan Brar",
+      //         },
+      //       ],
+      //       Subject: "From Website - I want to get in touch",
+      //       TextPart: "",
+      //       HTMLPart: emailTemplateContactForm({
+      //         fullName,
+      //         clientEmail,
+      //         clientPhoneNumber,
+      //         contactMessage,
+      //       }),
+      //     },
+      //   ],
+      // });
+
+      // console.log(result)
     } else {
-      const result = await mailjet.post("send", { version: "v3.1" }).request({
-        Messages: [
-          {
-            From: {
-              Email: process.env.SENDER_EMAIL,
-              Name: "Save on Rates Website",
-            },
-            To: [
-              {
-                Email: process.env.TO_EMAIL,
-                Name: "Armaan Brar",
-              },
-            ],
-            Subject: "From Website - Estimate My Rate",
-            TextPart: "",
-            HTMLPart: emailTemplateApplyNow({
-              custRequest,
-              clientEmail,
-              clientPhoneNumber,
-              data,
-              custGoal,
-              custDownPayment,
-              buyingPlan,
-              mortgageEnd,
-              custCreditScore,
-              fullName,
-            }),
-          },
-        ],
-      });
-      console.log(result);
+
+            const msg = {
+              to: process.env.TO_EMAIL, // Change to your recipient
+              from: process.env.SENDER_EMAIL, // Change to your verified sender
+              subject: "From Website - I want to get in touch",
+              text: "Client Inquiry from the website",
+              html: emailTemplateApplyNow({
+                custRequest,
+                clientEmail,
+                clientPhoneNumber,
+                data,
+                custGoal,
+                custDownPayment,
+                buyingPlan,
+                mortgageEnd,
+                custCreditScore,
+                fullName,
+              }),
+            };
+            sgMail
+              .send(msg)
+              .then(() => {
+                console.log("Email sent");
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+
+      // const result = await mailjet.post("send", { version: "v3.1" }).request({
+      //   Messages: [
+      //     {
+      //       From: {
+      //         Email: process.env.SENDER_EMAIL,
+      //         Name: "Save on Rates Website",
+      //       },
+      //       To: [
+      //         {
+      //           Email: process.env.TO_EMAIL,
+      //           Name: "Armaan Brar",
+      //         },
+      //       ],
+      //       Subject: "From Website - Estimate My Rate",
+      //       TextPart: "",
+            // HTMLPart: emailTemplateApplyNow({
+            //   custRequest,
+            //   clientEmail,
+            //   clientPhoneNumber,
+            //   data,
+            //   custGoal,
+            //   custDownPayment,
+            //   buyingPlan,
+            //   mortgageEnd,
+            //   custCreditScore,
+            //   fullName,
+            // }),
+      //     },
+      //   ],
+      // });
+      // console.log(result);
     }
     console.log("Email sent successfully!");
   } catch (err) {
