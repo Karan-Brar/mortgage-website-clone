@@ -256,7 +256,6 @@ export const sendContactEmail = async (inquiryInfo) => {
       // });
       // console.log(result);
     }
-    console.log("Email sent successfully!");
   } catch (err) {
     console.error("Error sending email:", err);
   }
