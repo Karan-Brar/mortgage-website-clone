@@ -110,6 +110,7 @@
 
 import Handlebars from "handlebars";
 import fs from "fs";
+import { Result } from "postcss";
 
 export const sendContactEmail = async (inquiryInfo) => {
   const mailjet = require("node-mailjet").apiConnect(
@@ -144,7 +145,7 @@ export const sendContactEmail = async (inquiryInfo) => {
 
   try {
     if (emailSource === "Contact Form") {
-      await mailjet.post("send", { version: "v3.1" }).request({
+      const result = await mailjet.post("send", { version: "v3.1" }).request({
         Messages: [
           {
             From: {
@@ -168,8 +169,10 @@ export const sendContactEmail = async (inquiryInfo) => {
           },
         ],
       });
+
+      console.log(result)
     } else {
-      await mailjet.post("send", { version: "v3.1" }).request({
+      const result = await mailjet.post("send", { version: "v3.1" }).request({
         Messages: [
           {
             From: {
@@ -199,6 +202,7 @@ export const sendContactEmail = async (inquiryInfo) => {
           },
         ],
       });
+      console.log(result);
     }
     console.log("Email sent successfully!");
   } catch (err) {
