@@ -160,14 +160,9 @@ export const sendContactEmail = async (inquiryInfo) => {
           contactMessage,
         }),
       };
-      sgMail
-        .send(msg)
-        .then(() => {
-          console.log("Email sent");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      
+      const sended = sgMail.send(msg)
+      console.log("sended: ", sended);
 
       // const result = await mailjet.post("send", { version: "v3.1" }).request({
       //   Messages: [
@@ -195,6 +190,8 @@ export const sendContactEmail = async (inquiryInfo) => {
       // });
 
       // console.log(result)
+
+      return { success: true };
     } else {
 
             const msg = {
@@ -215,14 +212,9 @@ export const sendContactEmail = async (inquiryInfo) => {
                 fullName,
               }),
             };
-            sgMail
-              .send(msg)
-              .then(() => {
-                console.log("Email sent");
-              })
-              .catch((error) => {
-                console.error(error);
-              });
+
+            const sended = sgMail.send(msg);
+            console.log("sended: ", sended);
 
       // const result = await mailjet.post("send", { version: "v3.1" }).request({
       //   Messages: [
@@ -255,6 +247,8 @@ export const sendContactEmail = async (inquiryInfo) => {
       //   ],
       // });
       // console.log(result);
+
+      return { success: true };
     }
   } catch (err) {
     console.error("Error sending email:", err);
