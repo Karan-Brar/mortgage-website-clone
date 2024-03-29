@@ -45,8 +45,6 @@ export const sendContactEmail = async (inquiryInfo) => {
         }),
       };
 
-      // const sended = await sgMail.send(msg);
-
       await new Promise((resolve, reject) => {
         // send mail
         sgMail.send(msg, (err, info) => {
@@ -61,6 +59,9 @@ export const sendContactEmail = async (inquiryInfo) => {
       });
 
       return { success: true };
+
+      // const sended = await sgMail.send(msg);
+      // console.log("sended: ", sended);
     } else {
       const msg = {
         to: process.env.TO_EMAIL, // Change to your recipient

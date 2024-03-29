@@ -59,7 +59,7 @@ const DropDown = ({
         <span className="nav_link">SOLUTIONS</span>
       </div> */}
       <Link href="/ApplyNow" className={desktopMode ? "link" : "dropdown_link"}>
-        <span className="nav_link">ESTIMATE</span>
+        <span className="bg-blue-200 text-white p-3 rounded-sm">ESTIMATE MY RATE</span>
       </Link>
     </div>
   );

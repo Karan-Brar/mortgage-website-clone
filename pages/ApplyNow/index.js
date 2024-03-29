@@ -64,6 +64,7 @@ const index = () => {
       mortgageEnd,
       fullName,
     });
+    window.open("https://calendly.com/saveonrates/rateoptions", "_self");
   };
 
   return (

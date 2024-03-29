@@ -12,7 +12,10 @@ export default function NavigationBar() {
     // Desktop Nav
     <div className="sticky top-0 z-10">
       <nav className="flex justify-between w-full p-3 flex-between sm:px-12 sm:py-2 font-franklin bg-slate-50 sticky top-0 z-10 drop-shadow-lg">
-        <Link href="/" className="flex flex-row sm:gap-5 gap-3 justify-center align-middle items-center sm:pr-0 pr-4">
+        <Link
+          href="/"
+          className="flex flex-row sm:gap-5 gap-3 justify-center align-middle items-center sm:pr-0 pr-4"
+        >
           <Image
             src="/assets/images/logo-main-2.svg"
             alt="Main Logo"
@@ -39,7 +42,15 @@ export default function NavigationBar() {
           {/* Mobile Nav */}
 
           <div className="relative z-10 flex self-center lg:hidden">
-            <div className="flex">
+            <Link
+              href="/ApplyNow"
+              className="dropdown_link"
+            >
+              <span className="bg-blue-200 text-white p-3 rounded-sm">
+                ESTIMATE MY RATE
+              </span>
+            </Link>
+            {/* <div className="flex">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -62,10 +73,10 @@ export default function NavigationBar() {
                   onClick={() => setToggleDropdown(false)}
                 />
               )}
-            </div>
+            </div> */}
           </div>
 
-          <div className="relative z-10 flex self-center ml-5 cursor-pointer">
+          {/* <div className="relative z-10 flex self-center ml-5 cursor-pointer">
             <div className="flex">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +98,7 @@ export default function NavigationBar() {
                 <PhoneDropDown onClick={() => setToggleDropdown(false)} />
               )}
             </div>
-          </div>
+          </div> */}
           {/* <span className="p-3 flex text-lg text-blue-200 font-bold items-center w-fit rounded-lg ml-5 hidden sm:block justify-center">
             (431) 997-1277
           </span> */}
