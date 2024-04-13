@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div>
       <Head>
+
         <title>Save On Rates</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
