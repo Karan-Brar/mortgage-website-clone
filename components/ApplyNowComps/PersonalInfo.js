@@ -36,14 +36,23 @@ const PersonalInfo = (props) => {
     temp += formData;
     props.submitForm({ data: formData, componentType });
   }
+
+    const handleSubmitForm = (formData) => {
+      if (Object.keys(errors).length === 0) {
+        // No validation errors, proceed to submit the form
+        sendContactEmail(formData);
+      } else {
+        // There are validation errors, do something (e.g., display an error message)
+        console.log("Form has errors, cannot submit.");
+      }
+    };
   return (
     <div className="option-card">
       <StepNumber number="5" />
       <h2 className="heading-question">Tell Us a Little About Yourself</h2>
       <div className="flex flex-col w-full mx-auto sm:w-3/4">
-        {/* Why form? I mean semantically it makes sense but the following buttons types arent set so we are actually "submitting" to no where */}
         <form
-          onSubmit={handleSubmit((data) => sendContactEmail(data))}
+          onSubmit={handleSubmit((data) => handleSubmitForm(data))}
           className="flex flex-col items-center justify-center"
         >
           <div className="options-input-area !mt-9">
