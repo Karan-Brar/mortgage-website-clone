@@ -35,12 +35,15 @@ const PersonalInfo = (props) => {
     let temp = data;
     temp += formData;
     props.submitForm({ data: formData, componentType });
+    
+
   }
 
     const handleSubmitForm = (formData) => {
       if (Object.keys(errors).length === 0) {
         // No validation errors, proceed to submit the form
         sendContactEmail(formData);
+
       } else {
         // There are validation errors, do something (e.g., display an error message)
         console.log("Form has errors, cannot submit.");
